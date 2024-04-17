@@ -1,0 +1,1039 @@
+# TypeScript 基础及在 Vue 中的实践
+
+微软于3月16日发布了 TypeScript 5.0 版本。微软表示新版本体积更小、开发者更容易上手且运行速度更快。
+
+根据 The Software House 发布的《2022 前端开发市场状态调查报告》数据显示，使用 TypeScript 的人数已经达到 84%，和 2021 年相比增加了 7 个百分点。
+
+TypeScript 可谓逐年火热，使用者呈现逐年上升的趋势，再不学起来就说不过去。 
+
+我们 [OpenTiny](opentiny.design) 近期做了一次大的升级，将原来运行了 `9年` 的 `JavaScript` 代码升级到了 `TypeScript`，并通过 Monorepo 进行子包的管理，还在用 JavaScript 的朋友抓紧升级哦，我特意准备了一份《JS项目改造TS指南》文档供大家参考，顺便介绍了一些 TS 基础知识和 TS 在 Vue 中的一些实践。
+
+![image.png](/assets/typescript-vue-1.png)
+
+通过本文你将收获：
+- 通过了解 TS 的四大好处，说服自己下定决心学习 TS
+- 5 分钟学习 TS 最基础和常用的知识点，快速入门，包教包会
+- 了解如何在 Vue 中使用 TypeScript，给 Vue2 开发者切换到 Vue3 + TypeScript 提供最基本的参考
+- 如何将现有的 JS 项目改造成 TS 项目
+
+## 1 学习 TS 的好处
+
+### 1.1 好处一：紧跟潮流：让自己看起来很酷
+
+如果你没学过 TS  
+你的前端朋友：都 2023 年了，你还不会 TS？给你一个眼色你自己感悟吧
+  
+如果你学过 TS  
+你的前端朋友：哇，你们的项目已经用上 Vue3 + TS 啦，看起来真棒！教教我吧
+
+![image.png](/assets/typescript-vue-2.png)
+
+如果说上面那个好处太虚了，那下面的3条好处可都是实实在在能让自己受益的。
+
+### 1.2 好处二：智能提示：提升开发者体验和效率
+
+当循环一个对象数组时，对象的属性列表可以直接显示出来，不用到对象的定义中去查询该对象有哪些属性。
+
+
+![image.png](/assets/typescript-vue-3.png)
+
+通过调用后台接口获取的异步数据也可以通过TS类型进行智能提示，这样相当于集成了接口文档，后续后台修改字段，我们很容易就能发现。
+
+![image.png](/assets/typescript-vue-4.png)
+
+Vue 组件的属性和事件都可以智能提示。
+
+下图是我们 [OpenTiny](https://github.com/opentiny/tiny-vue) 跨端跨框架前端组件库中的 Alert 组件，当在组件标签中输入 `des` 时，会自动提示 `description` 属性；当输入 `@c` 时，会自动提示 `@close` 事件。
+
+![image.png](/assets/typescript-vue-5.png)
+
+### 1.3 好处三：错误标记：代码哪里有问题一眼就知道
+
+在 JS 项目使用不存在的对象属性，在编码阶段不容易看出来，到运行时才会报错。
+
+
+![image.png](/assets/typescript-vue-6.png)
+
+在 TS 项目使用不存在的对象属性，在IDE中会有红色波浪线标记，鼠标移上去能看到具体的错误信息。  
+
+
+![image.png](/assets/typescript-vue-7.png)
+  
+在 JS 项目，调用方法时拼错单词不容易被发现，要在运行时才会将错误暴露出来。  
+
+
+![image.png](/assets/typescript-vue-8.png)
+
+在 TS 项目会有红色波浪线提示，一眼就看出拼错单词。
+
+![image.png](/assets/typescript-vue-9.png)
+
+### 1.4 好处四：类型约束：用我的代码就得听我的
+
+你写了一个工具函数 getType 给别人用，限定参数只能是指定的字符串，这时如果使用这个函数的人传入其他字符串，就会有红色波浪线提示。  
+
+![image.png](/assets/typescript-vue-10.png)
+
+Vue 组件也是一样的，可以限定组件 props 的类型，组件的使用者如果传入不正确的类型，将会有错误提示，比如：我们 [OpenTiny](https://opentiny.design) 的 Alert 组件，closable 只能传入 Boolean 值，如果传入一个字符串就会有错误提示。
+
+![image.png](/assets/typescript-vue-11.png)
+
+## 2 极简 TS 基础，5分钟学会
+
+以下内容虽然不多，但包含了实际项目开发中最实用的部分，对于 TS 入门者来说也是能很快学会的，学不会的找我，手把手教，包教包会，有手就会写。
+
+### 2.1 基本类型
+
+用得较多的类型就下面5个，更多类型请参考：[TS官网文档](https://www.typescriptlang.org/docs/handbook/2/basic-types.html)
+- 布尔 boolean  
+- 数值 number  
+- 字符串 string  
+- 空值 void：表示没有任何返回值的函数  
+- 任意 any：表示不被类型检查
+
+用法也很简单：
+
+```js
+let isDone: boolean = false;
+
+let myFavoriteNumber: number = 6;
+
+let myName: string = 'Kagol';
+
+function alertName(name: string): void {  
+  console.log(`My name is ${name}`);  
+}
+```
+
+默认情况下，name 会自动类型推导成 string 类型，此时如果给它赋值为一个 number 类型的值，会出现错误提示。
+
+```js
+let name = 'Kagol'  
+name = 6
+```
+
+
+![image.png](/assets/typescript-vue-12.png)
+
+如果给 name 设置 any 类型，表示不做类型检查，这时错误提示消失。
+
+```js
+let name: any = 'Kagol'  
+name = 6
+```
+
+![image.png](/assets/typescript-vue-13.png)
+
+### 2.2 函数
+
+主要定义函数参数和返回值类型。
+
+看一下例子：
+
+```js
+const sum = (x: number, y: number): number => {  
+  return x + y  
+}
+```
+
+以上代码包含以下 TS 校验规则：
+- 调用 sum 函数时，必须传入两个参数，多一个或者少一个都不行
+- 并且这两个参数的类型要为 number 类型
+- 且函数的返回值为 number 类型
+
+少参数：
+
+![image.png](/assets/typescript-vue-14.png)
+
+多参数：
+
+![image.png](/assets/typescript-vue-15.png)
+
+参数类型错误：
+
+
+![image.png](/assets/typescript-vue-16.png)
+
+返回值：
+
+
+![image.png](/assets/typescript-vue-17.png)
+
+用问号 `?` 可以表示该参数是可选的。
+
+```js
+const sum = (x: number, y?: number): number => {  
+  return x + (y || 0);  
+}  
+
+sum(1)  
+```
+
+如果将 y 定义为可选参数，则调用 sum 函数时可以只传入一个参数。  
+
+需要注意的是，可选参数必须接在必需参数后面。换句话说，可选参数后面不允许再出现必需参数了。  
+
+给 y 增加默认值 0 之后，y 会自动类型推导成 number 类型，不需要加 number 类型，并且由于有默认值，也不需要加可选参数。
+
+```js
+const sum = (x: number, y = 0): number => {  
+  return x + y  
+}
+
+sum(1)  
+sum(1, 2)  
+```
+
+
+### 2.3 数组
+
+数组类型有两种表示方式：
+- `类型 + 方括号` 表示法
+- `泛型` 表示法
+
+```js
+// `类型 + 方括号` 表示法
+let fibonacci: number[] = [1, 1, 2, 3, 5]
+
+// 泛型表示法
+let fibonacci: Array<number> = [1, 1, 2, 3, 5]
+```
+
+这两种都可以表示数组类型，看自己喜好进行选择即可。
+
+如果是类数组，则不可以用数组的方式定义类型，因为它不是真的数组，需要用 interface 进行定义
+
+```js
+interface IArguments {
+  [index: number]: any;
+  length: number;
+  callee: Function;
+}
+
+function sum() {
+  let args: IArguments = arguments
+}
+```
+
+`IArguments` 类型已在 TypeScript 中内置，类似的还有很多：
+
+```js
+let body: HTMLElement = document.body;
+
+let allDiv: NodeList = document.querySelectorAll('div');
+
+document.addEventListener('click', function(e: MouseEvent) {
+  // Do something
+});
+```
+
+如果数组里的元素类型并不都是相同的怎么办呢？
+
+这时 any 类型就发挥作用啦啦
+
+```js
+let list: any[] = ['OpenTiny', 112, { website: 'https://opentiny.design/' }];
+```
+
+### 2.4 接口
+
+接口简单理解就是一个对象的“轮廓”
+
+```js
+interface IResourceItem {
+  name: string;
+  value?: string | number;
+  total?: number;
+  checked?: boolean;
+}
+```
+
+接口是可以继承接口的
+
+```js
+interface IClosableResourceItem extends IResourceItem {
+  closable?: boolean;
+}
+```
+
+这样 IClosableResourceItem 就包含了 IResourceItem 属性和自己的 closable 可选属性。
+
+
+接口也是可以被类实现的
+
+```js
+interface Alarm {
+  alert(): void;
+}
+
+class Door {
+}
+
+class SecurityDoor extends Door implements Alarm {
+  alert() {
+    console.log('SecurityDoor alert')
+  }
+}
+
+```
+
+如果类实现了一个接口，却不写具体的实现代码，则会有错误提示
+
+![image.png](/assets/typescript-vue-18.png)
+
+### 2.5 联合类型 & 类型别名
+
+联合类型是指取值可以为多种类型中的一种，而类型别名常用于联合类型。
+
+看以下例子：
+
+```js
+// 联合类型
+let myFavoriteNumber: string | number
+myFavoriteNumber = 'six'
+myFavoriteNumber = 6
+
+// 类型别名
+type FavoriteNumber = string | number
+let myFavoriteNumber: FavoriteNumber
+```
+
+当 TypeScript 不确定一个联合类型的变量到底是哪个类型的时候，我们只能访问此联合类型的所有类型里共有的属性或方法：
+
+```js
+function getLength(something: string | number): number {
+  return something.length
+}
+
+// index.ts(2,22): error TS2339: Property 'length' does not exist on type 'string | number'.
+//   Property 'length' does not exist on type 'number'.
+```
+
+上例中，length 不是 string 和 number 的共有属性，所以会报错。
+
+访问 string 和 number 的共有属性是没问题的：
+
+```js
+function getString(something: string | number): string {
+  return something.toString()
+}
+```
+
+### 2.6 类型断言
+
+类型断言（Type Assertion）可以用来手动指定一个值的类型。
+
+语法：值 as 类型，比如：`(animal as Fish).swim()`
+
+
+类型断言主要有以下用途：
+
+- 将一个联合类型断言为其中一个类型
+- 将一个父类断言为更加具体的子类
+- 将任何一个类型断言为 any
+- 将 any 断言为一个具体的类型
+
+我们一个个来看。
+
+用途1：将一个联合类型断言为其中一个类型
+
+```js
+interface Cat {
+  name: string;
+  run(): void;
+}
+
+interface Fish {
+  name: string;
+  swim(): void;
+}
+
+const animal: Cat | Fish = new Animal()
+animal.swim()
+```
+
+animal 是一个联合类型，可能是猫 Cat，也可能是鱼 Fish，如果直接调用 swim 方法是要出现错误提示的，因为猫不会游泳。
+
+
+![image.png](/assets/typescript-vue-19.png)
+
+这时类型断言就派上用场啦啦，因为调用的是 swim 方法，那肯定是鱼，所以直接断言为 Fish 就不会出现错误提示。
+
+```js
+const animal: Cat | Fish = new Animal()
+(animal as Fish).swim()
+```
+
+用途2：将一个父类断言为更加具体的子类
+
+```js
+class ApiError extends Error {
+  code: number = 0;
+}
+
+class HttpError extends Error {
+  statusCode: number = 200;
+}
+
+function isApiError(error: Error) {
+  if (typeof (error as ApiError).code === 'number') {
+    return true;
+  }
+  return false;
+}
+```
+
+ApiError 和 HttpError 都继承自 Error 父类，error 变量的类型是 Error，去取 code 变量肯定是不行，因为取的是 code 变量，我们可以直接断言为 ApiError 类型。
+
+用途3：将任何一个类型断言为 any
+
+这个非常有用，看一下例子：
+
+```js
+function getCacheData(key: string): any {
+  return (window as any).cache[key];
+}
+
+interface Cat {
+  name: string;
+  run(): void;
+}
+
+const tom = getCacheData('tom') as Cat;
+```
+
+getCacheData 是一个历史遗留函数，不是你写的，由于他返回 any 类型，就等于放弃了 TS 的类型检验，假如 tom 是一只猫，里面有 name 属性和 `run()` 方法，但由于返回 any 类型，`tom.` 是没有任何提示的。
+
+如果将其断言为 Cat 类型，就可以 `点` 出 name 属性和 `run()` 方法。
+
+![image.png](/assets/typescript-vue-20.png)
+
+用途4：将 any 断言为一个具体的类型
+
+这个比较常见的场景是给 window 挂在一个自己的变量和方法。
+
+```js
+window.foo = 1;
+
+// index.ts:1:8 - error TS2339: Property 'foo' does not exist on type 'Window & typeof globalThis'.
+
+(window as any).foo = 1;
+
+```
+
+由于 window 下没有 foo 变量，直接赋值会有错误提示，将 window 断言为 any 就没问题啦啦。
+
+### 2.7 元组
+
+数组合并了相同类型的对象，而元组（Tuple）合并了不同类型的对象。
+
+```js
+let tom: [string, number] = ['Tom', 25];
+```
+
+给元组类型赋值时，数组每一项的类型需要和元组定义的类型对应上。
+
+当赋值或访问一个已知索引的元素时，会得到正确的类型：
+
+```js
+let tom: [string, number];
+
+tom[0] = 'Tom';
+tom[1] = 25;
+
+tom[0].slice(1);
+tom[1].toFixed(2);
+```
+
+
+也可以只赋值其中一项：
+
+```js
+let tom: [string, number];
+tom[0] = 'Tom';
+```
+
+但是当直接对元组类型的变量进行初始化或者赋值的时候，需要提供所有元组类型中指定的项。
+
+```js
+let tom: [string, number];
+tom = ['Tom'];
+// Property '1' is missing in type '[string]' but required in type '[string, number]'.
+```
+
+当添加越界的元素时，它的类型会被限制为元组中每个类型的联合类型：
+
+```js
+let tom: [string, number];
+tom = ['Tom', 25];
+tom.push('male');
+
+tom.push(true);
+// Argument of type 'true' is not assignable to parameter of type 'string | number'.
+```
+
+push 字符串和数字都可以，布尔就不行。
+
+### 2.8 枚举
+
+枚举（Enum）类型用于取值被限定在一定范围内的场景，比如一周只能有七天，颜色限定为红绿蓝等。
+
+```js
+enum Days {Sun, Mon, Tue, Wed, Thu, Fri, Sat}
+```
+
+枚举成员会被赋值为从 0 开始递增的数字，同时也会对枚举值到枚举名进行反向映射：
+
+```js
+console.log(Days.Sun === 0) // true
+console.log(Days[0] === 'Sun') // true
+console.log('Days', Days)
+```
+
+手动赋值：未手动赋值的枚举项会接着上一个枚举项递增。
+```js
+enum Days {Sun = 7, Mon = 1, Tue, Wed, Thu, Fri, Sat}
+```
+
+### 2.9 类
+
+给类加上 TypeScript 的类型很简单，与接口类似：
+
+```js
+class Animal {
+  name: string
+  constructor(name: string) {
+    this.name = name
+  }
+  sayHi(welcome: string): string {
+    return `${welcome} My name is ${this.name}`
+  }
+}
+```
+
+类的语法涉及到较多概念，请参考：
+- https://es6.ruanyifeng.com/#docs/class
+- https://ts.xcatliu.com/advanced/class.html
+
+### 2.10 泛型
+
+泛型（Generics）是指在定义函数、接口或类的时候，不预先指定具体的类型，而在使用的时候再指定类型的一种特性。
+
+可以简单理解为定义函数时的形参。
+
+
+设想以下场景，我们有一个 print 函数，输入什么，原样打印，函数的入参和返回值类型是一致的。
+
+一开始只需要打印字符串：
+```js
+function print(arg: string): string {
+  return arg
+}
+```
+
+后面需求变了，除了能打印字符串，还要能打印数字：
+```js
+function print(arg: string | number): string | number {
+  return arg
+}
+```
+
+假如需求又变了，要打印布尔值、对象、数组，甚至自定义的类型，怎么办，写一串联合类型？显然是不可取的，用 any？那就失去了 TS 类型校验能力，沦为 JS。
+
+function print(arg: any): any {
+  return arg
+}
+
+解决这个问题的完美方法就是泛型！
+
+print 后面加上一对尖括号，里面写一个 T，这个 T 就类似是一个类型的形参。
+
+这个类型形参可以在函数入参里用，也可以在函数返回值使用，甚至也可以在函数体里面的变量、函数里面用。
+
+```
+function print<T>(arg: T): T {
+  return arg
+}
+```
+
+那么实参哪里来？用的时候传进来！
+
+```
+const res = print<number>(123)
+```
+
+
+我们还可以使用泛型来约束后端接口参数类型。
+
+```
+import axios from 'axios'
+
+interface API {
+  '/book/detail': {
+      id: number,
+  },
+  '/book/comment': {
+      id: number
+      comment: string
+  }
+  ...
+}
+
+function request<T extends keyof API>(url: T, obj: API[T]) {
+  return axios.post(url, obj)
+}
+
+request('/book/comment', {
+  id: 1,
+  comment: '非常棒！'
+})
+```
+
+以上代码对接口进行了约束：
+
+- url 只能是 API 中定义过的，其他 url 都会提示错误
+
+![image.png](/assets/typescript-vue-21.png)
+
+- 接口参数 obj 必须和 url 能对应上，不能少属性，属性类型也不能错
+
+
+![image.png](/assets/typescript-vue-22.png)
+
+
+![image.png](/assets/typescript-vue-23.png)
+
+而且调用 request 方法时，也会提示 url 可以选择哪些
+
+
+![image.png](/assets/typescript-vue-24.png)
+
+如果后台改了接口参数名，我们一眼就看出来了，都不用去找接口文档，是不是很厉害！
+
+泛型的例子参考了前端阿林的文章：
+- [轻松拿下 TS 泛型](https://juejin.cn/post/7064351631072526350)
+
+## 3 TS 在 Vue 中的实践
+
+### 3.1 定义组件 props 的类型
+
+不使用 setup 语法糖
+
+```js
+export default defineComponent({
+  props: {
+    items: {
+      type: Object as PropType<IResourceItem[]>,
+      default() {
+        return []
+      }
+    },
+    span: {
+      type: Number,
+      default: 4
+    },
+    gap: {
+      type: [String, Number] as PropType<string | number>,
+      default: '12px'
+    },
+    block: {
+      type: Object as PropType<Component>,
+      default: TvpBlock
+    },
+    beforeClose: Function as PropType<() => boolean>
+  }
+})
+```
+
+使用 setup 语法糖 – runtime 声明
+
+```js
+import { PropType, Component } from 'vue'
+
+const props = defineProps({
+  items: {
+    type: Object as PropType<IResourceItem[]>,
+    default() {
+      return []
+    }
+  },
+  span: {
+    type: Number,
+    default: 4
+  },
+  gap: {
+    type: [String, Number] as PropType<string | number>,
+    default: '12px'
+  },
+  block: {
+    type: Object as PropType<Component>,
+    default: TvpBlock
+  },
+  beforeClose: Function as PropType<() => boolean>
+})
+```
+
+使用 setup 语法糖 – type-based 声明
+
+```js
+import { Component, withDefaults } from 'vue'
+
+interface Props {
+  items: IResourceItem[]
+  span: number
+  gap: string | number
+  block: Component
+  beforeClose: () => void
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  items: () => [],
+  span: 4,
+  gap: '12px',
+  block: TvpBlock
+})
+```
+
+IResourceItem：
+
+```js
+interface IResourceItem {
+  name: string;
+  value?: string | number;
+  total?: number;
+  checked?: boolean;
+  closable?: boolean;
+}
+```
+
+### 3.2 定义 emits 类型
+
+不使用 setup 语法糖
+
+```js
+export default defineComponent({
+  emits: ['change', 'update'],
+  setup(props, { emit }) {
+    emit('change')
+  }
+})
+```
+
+
+![image.png](/assets/typescript-vue-25.png)
+
+使用 setup 语法糖
+
+```js
+<script setup lang="ts">
+// runtime
+const emit = defineEmits(['change', 'update'])
+
+// type-based
+const emit = defineEmits<{
+  (e: 'change', id: number): void
+  (e: 'update', value: string): void
+}>()
+</script>
+```
+
+### 3.3 定义 ref 类型
+
+默认会自动进行类型推导
+
+```js
+import { ref } from 'vue'
+
+// inferred type: Ref<number>
+const year = ref(2020)
+
+// => TS Error: Type 'string' is not assignable to type 'number'.
+year.value = '2020'
+```
+
+两种声明 ref 类型的方法
+
+```js
+import { ref } from 'vue'
+import type { Ref } from 'vue'
+
+// 方式一
+const year: Ref<string | number> = ref('2020')
+year.value = 2020 // ok!
+
+// 方式二
+// resulting type: Ref<string | number>
+const year = ref<string | number>('2020')
+year.value = 2020 // ok!
+```
+
+### 3.4 定义 reactive 类型
+
+默认会自动进行类型推导
+
+```js
+import { reactive } from 'vue'
+
+// inferred type: { title: string }
+const book = reactive({ title: 'Vue 3 Guide' })
+```
+
+使用接口定义明确的类型
+
+```js
+import { reactive } from 'vue'
+
+interface Book {
+  title: string
+  year?: number
+}
+
+const book: Book = reactive({ title: 'Vue 3 Guide' })
+```
+
+### 3.5 定义 computed 类型
+
+默认会自动进行类型推导
+
+```js
+import { ref, computed } from 'vue'
+
+const count = ref(0)
+
+// inferred type: ComputedRef<number>
+const double = computed(() => count.value * 2)
+
+// => TS Error: Property 'split' does not exist on type 'number'
+const result = double.value.split('')
+```
+
+两种声明 computed 类型的方法
+
+```js
+import { ComputedRef, computed } from 'vue'
+
+
+const double: ComputedRef<number> = computed(() => {
+  // type error if this doesn't return a number
+})
+
+const double = computed<number>(() => {
+  // type error if this doesn't return a number
+})
+```
+
+### 3.6 定义 provide/inject 类型
+
+provide
+
+```js
+import { provide, inject } from 'vue'
+import type { InjectionKey } from 'vue'
+
+// 声明 provide 的值为 string 类型
+const key = Symbol() as InjectionKey<string>
+
+provide(key, 'foo') // providing non-string value will result in error
+```
+
+inject
+
+```js
+// 自动推导为 string 类型
+const foo = inject(key) // type of foo: string | undefined
+// 明确指定为 string 类型
+const foo = inject<string>('foo') // type: string | undefined
+// 增加默认值
+const foo = inject<string>('foo', 'bar') // type: string
+// 类型断言为 string
+const foo = inject('foo') as string
+```
+
+### 3.7 定义模板引用的类型
+
+```js
+<script setup lang="ts">
+import { ref, onMounted } from 'vue'
+const el = ref<HTMLInputElement | null>(null)
+onMounted(() => {
+  el.value?.focus()
+})
+</script>
+<template>
+  <input ref="el" />
+</template>
+```
+
+### 3.8 定义组件模板引用的类型
+
+定义一个 MyModal 组件
+
+```js
+<!-- MyModal.vue -->
+<script setup lang="ts">
+import { ref } from 'vue'
+
+const isContentShown = ref(false)
+const open = () => (isContentShown.value = true)
+defineExpose({
+  open
+})
+</script>
+```
+
+在 App.vue 中引用 MyModal 组件
+
+```js
+<!-- App.vue -->
+<script setup lang="ts">
+import MyModal from './MyModal.vue'
+
+const modal = ref<InstanceType<typeof MyModal> | null>(null)
+const openModal = () => {
+  modal.value?.open()
+}
+</script>
+```
+
+![image.png](/assets/typescript-vue-26.png)
+
+参考 Vue 官网文档：
+- [TypeScript with Composition API](https://vuejs.org/guide/typescript/composition-api.html)
+
+## 4 JS 项目转 TS
+
+还是使用 JS 的同学有福啦！为了让大家快速用上 TS，享受 TS 的丝滑体验，我整理了一份`《JS 项目改造成 TS 项目指南》`。有了这份步骤指南，JS 项目转 TS 不再是难事！
+
+我们新开源的 [TinyVue](https://opentiny.design/tiny-vue) 组件库，就使用这份`《JS 项目改造成 TS 项目指南》`，成功地由 JS 项目改造成了 TS 项目，悄悄地告诉大家：
+
+- [TinyVue](https://github.com/opentiny/tiny-vue) 是一套跨端、跨框架的企业级 UI 组件库，支持 Vue 2 和 Vue 3，支持 PC 端和移动端。
+- 在内部经过9年持续打磨，服务于华为内外部上千个项目。
+- 目前代码量超过`10万行`。
+
+这么庞大的代码量都能从 JS 转 TS，其他小规模的项目更是不在话下。
+
+为了验证自己的猜想，我又在 GitHub 找到了一个6年前的 Vue2 + JS 项目，目前早已不再维护，打算尝试将其改造成 TS 项目，结果按照这份指南，1个小时不用就搞定啦啦
+
+[https://github.com/liangxiaojuan/vue-todos](https://github.com/liangxiaojuan/vue-todos)
+
+这个项目的效果图长这样：
+
+![image.png](/assets/typescript-vue-27.png)
+
+我已经提了 issue，看下作者是否同意改造成 TS，同意的话，我立马就是一个 PR 过去！
+
+话不多说，大家有需要的，可直接拿走！
+
+### 《JS 项目改造成 TS 项目指南》
+
+JS 项目改造成 TS 步骤：
+
+1. 安装 TS：`npm i typescript ts-loader -D`
+2. 增加 TS 配置文件：`tsconfig.json`
+3. 修改文件后缀名：`x.js -> x.ts`
+4. `x.vue` 文件增加 lang：`<script lang="ts">`
+5. `vite.config.js` 配置后缀名
+6. 升级依赖，修改本地启动和构建脚本
+7. 添加 `loader` / `plugin` 等
+8. 逐步补充类型声明
+
+
+tsconfig.ts
+```js
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "strict": true,
+    "jsx": "preserve",
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "lib": ["ESNext", "DOM"],
+    "skipLibCheck": true
+  },
+  "include": [
+    "src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"
+  ]
+}
+```
+
+配置文件后缀名，增加 `.ts` 和 `.tsx`
+
+```js
+extensions: ['.js', '.vue', '.json', '.ts', 'tsx'],
+```
+
+入口文件要由 `main.js` 改成 `main.ts`
+
+```js
+entry: {
+  app: './src/main.ts'
+},
+```
+
+需要配置下 loader
+
+```js
+{
+  test: /\.tsx?$/,
+  loader: 'ts-loader',
+  exclude: /node_modules/,
+  options: {
+    appendTsSuffixTo: [/\.vue$/]
+  },
+  include: [resolve('src')]
+}
+```
+
+以及 plugin
+
+```js
+const { VueLoaderPlugin } = require('vue-loader')
+
+plugins: [
+  new VueLoaderPlugin()
+],
+```
+
+完成之后，先测试下项目是否能正常启动和构建：`npm run dev` / `npm run build`
+
+都没问题之后，本次 TS 项目改造就完成大部分啦啦！
+
+后续就是逐步补充代码涉及到的变量和函数的类型声明即可。
+
+改造过程中遇到问题欢迎留言讨论，希望你也能尽快享受 TS 的丝滑开发者体验！
+
+## TinyVue 招募贡献者啦
+
+如果你对我们的跨端跨框架组件库 [TinyVue](https://github.com/opentiny/tiny-vue) 感兴趣，欢迎参与到我们的开源社区中来，一起将它建设得更好！
+
+参与 TinyVue 组件库建设，你将收获：
+
+直接的价值：
+
+- 通过打造一个跨端、跨框架的组件库项目，学习最新的 `Monorepo` + `Vite` + `Vue3` + `TypeScript` 技术
+- 学习从 0 到 1 搭建一个自己的组件库的整套流程和方法论，包括组件库工程化、组件的设计和开发等
+- 为自己的简历和职业生涯添彩，参与过优秀的开源项目，这本身就是受面试官青睐的亮点
+- 结识一群优秀的、热爱学习、热爱开源的小伙伴，大家一起打造一个伟大的产品
+
+长远的价值：
+
+- 打造个人品牌，提升个人影响力
+- 培养良好的编码习惯
+- 获得华为云 [OpenTiny](https://opentiny.design/) 开源社区的荣誉&认可和定制小礼物
+- 成为 PMC & Committer 之后还能参与 OpenTiny 整个开源生态的决策和长远规划，培养自己的管理和规划能力
+未来有更多机会和可能
+
+![欢迎.png](/assets/typescript-vue-28.png)
+
+往期活动礼品及贡献者的反馈：
+
+![养生壶.png](/assets/typescript-vue-29.png)
+
+![旋转月球灯.png](/assets/typescript-vue-30.png)
+
+<EditInfo time="2023-03-30 07:06" title="74594展现 · 6185阅读 · 124点赞 · 52评论 · 126收藏" />
