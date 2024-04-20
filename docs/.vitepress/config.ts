@@ -14,9 +14,9 @@ export default defineConfig({
       '/tech/': sidebarTech(),
       '/open-source/': sidebarOpenSource()
     },
-    footer: {
-      message: 'Made with ❤ by',
-      copyright: 'Kagol 和前端开源星球🌍'
-    }
+    // footer: {
+    //   message: 'Made with ❤ by',
+    //   copyright: 'Kagol 和 <div class="k-code">前端开源星球<img src="qrcode.jpeg" width="80" alt="前端开源星球" /></div> 公众号🌍'
+    // }
   }
 })
