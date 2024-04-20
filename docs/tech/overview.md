@@ -1,10 +1,14 @@
-# 我的前端技术之旅
+# 前端10年：我的前端技术之旅
+
+2013年7月毕业至今，从事前端开发整整十年，这篇文章是对我职业生涯的一次回顾，这次回顾颇有感概，不仅回顾了之前工作的公司、同事，也看了一遍之前写的代码、写的文章，还有以前看的技术书的笔记。
+
+本文就以技术栈为线，把这十年的前端经历串起来，一来让读者一窥这十年前端发展的历程，二来也希望通过分享我个人的经历，给技术人一点信心和方向，原来一直做技术也可以做十年，马上我也35岁了，希望我能打破程序员只能干到35岁的魔咒，40岁、50岁，我依然会写代码，这不仅仅是我的赖以谋生的手段，更是一种生活方式，通过写代码我认识了很多志同道合的朋友，在写代码的路上，我也在欣赏和探索这个世界。
 
 ## jQuery
 
 关键词：`jQuery`、`全栈`
 
-我的第一份前端工作，使用的是 jQuery 技术，主要用于搭建电商后台管理系统，当时刚从学校出来，没有系统学习过前端知识，于是买了两本书📚。
+我的第一份前端工作，在一家电商创业公司，我主要做电商后台管理系统，使用的是 jQuery 技术，当时刚从学校出来，没有系统学习过前端知识，于是买了两本书📚。
 
 - [《JavaScript 高级程序设计（第3版）》](https://book.douban.com/subject/10546125/)（作者：[美] Nicholas C. Zakas，豆瓣评分 9.2，这本书现在已经出了第4版）
 - [《锋利的 jQuery（第2版）》](https://book.douban.com/subject/10792216/)（作者：单东林，豆瓣评分 8.3）
@@ -27,6 +31,8 @@ $('input[type="button"]').eq(0).click(function() {
 });
 ```
 
+jQuery 简化了DOM操作，并且采用链式调用的语法，在众多 JS 库中脱颖而出，从2006年开始到2016年，引领了前端近十年。
+
 除了电商后台管理系统，我还用 jQuery 开发了一个 FAQ 系统，这个系统也是我的第一个全栈项目，从产品到开发，从前端到后台，从开发和运维，都是我一个人负责的。
 
 - 前端基于 jQuery + page.js 技术栈
@@ -46,7 +52,7 @@ $('input[type="button"]').eq(0).click(function() {
 
 关键词：`Angular.js`、`MVVM`、`工程化`
 
-后面公司开发新项目，想着有没有什么新框架可以用，就去搜索了一下，发现了 `Angular.js` 这个当时还算比较新的前端框架。
+大约在2015年，公司开发新的 B2B 搭配管理系统，想着有没有什么新框架可以用，就去搜索了一下，发现了 `Angular.js` 这个当时还算比较火的前端框架。
 
 `jQuery` 是通过便捷的选择器、链式操作等简化了 DOM 操作，而 Angular.js 则是一种新的前端开发模式：`MVVM`，不直接操作 DOM，开发者写代码时操作的是数据，框架将数据绑定到视图（DOM），数据变化，视图跟着变化。
 
@@ -54,7 +60,7 @@ $('input[type="button"]').eq(0).click(function() {
 
 为了系统地学习 Angular.js，我又买了一本书📖（我是有多喜欢看书😋）。
 
-- [《精通AngularJS》](https://book.douban.com/subject/26022847/)（作者：Pawel Kozlowski / Peter Bacon Darwin，豆瓣评分 8.6）
+- [《精通 AngularJS》](https://book.douban.com/subject/26022847/)（作者：Pawel Kozlowski / Peter Bacon Darwin，豆瓣评分 8.6）
 
 <img src="/assets/tech-overview-2.jpeg" alt="精通Angular.js" width="400" />
 
@@ -88,9 +94,11 @@ module.exports = function(ngModule) {
 }
 ```
 
+当我们修改了 greeting 这个变量，视图中对应使用了这个变量的部分也会跟着变化，Angular.js 可以理解为 Angular 1.0 版本，和我们现在用的 Angular 2+ 版本的写法有巨大的差异，后面我们会看到 Angular 2+ 版本的写法比较接近现在三大框架的写法。
+
 除了开发 B2B 搭配管理系统，我还用 Angular.js 开发了马来支付客服系统，也是在开发这个项目的过程中，接触了 Webpack 构建工具这些前端工程化的东西。
 
-当时是 2015 年，Webpack 官网还是一个很简陋的 http 域名的网站：[http://webpack.github.io/](http://webpack.github.io/)（现在是：[https://webpack.js.org/](https://webpack.js.org/)），可以说是看着 Webpack 不断发展壮大的😝。
+当时是 2015 年底，我已经从原来的电商创业公司离职，来到了腾讯，当时的 Webpack 官网还是一个很简陋的 http 域名的网站：[http://webpack.github.io/](http://webpack.github.io/)（现在是：[https://webpack.js.org/](https://webpack.js.org/)），可以说是看着 Webpack 不断发展壮大的😝。
 
 我尝试用 Webpack 打包 Angular.js 项目成功，并写了一篇总结文章。
 
@@ -101,11 +109,13 @@ module.exports = function(ngModule) {
 
 - [Backbone 入门](/tech/2016/getting-started-with-backbone)
 
+除了上面提到的 jQuery、Angular.js、Backbone.js，这个阶段其实还有不少前端库和前端框架，比如：Bootstrap、Riot.js、YUI、Kissy 等，当然 React、Vue 也开始出现，只是还不是很火，大部分前端还是用 jQuery。
+
 ## React
 
 关键词：`React`、`组件化`、`研发全流程`
 
-2016年在腾讯做海外广告平台，用的是 React 技术栈，当时还是 React v0.x 的版本，后面才升级到 React 15。
+2016年开始在腾讯做海外广告平台，用的是 React 技术栈，当时还是 React v0.x 的版本，后面才升级到 React 15。
 
 这是我参与的第一个中型商用项目，从一开始负责效果数据子模块，到后面负责整体广告平台的前端。
 
@@ -122,7 +132,7 @@ module.exports = function(ngModule) {
 
 - [前端开发的积木理论——像搭积木一样做前端开发](/tech/2019/building-block-theory)（发布于 2019 年 1月）
 
-这也是我第一次接触前端组件库，当时团队并没有自己的组件库，用的是 Ant Design。
+这也是我第一次接触前端组件库，当时团队并没有自己的组件库，用的是 Ant Design，当时市面上的 UI 组件库其实并不多，我印象比较深的就是 Material UI 和 Ant Design。
 
 当时团队的技术大佬一直想自建组件库，只是由于领导是后台出身，对前端没有那么重视，导致没有足够的资源做这件事。
 
@@ -149,16 +159,18 @@ const rootElement = document.getElementById('root');
 
 class App extends Component {
 	render() {
-	return (
-		<Provider store={store}>
-			<Router history={history} routes={routes} />
-		</Provider>
-	);
+    return (
+      <Provider store={store}>
+        <Router history={history} routes={routes} />
+      </Provider>
+    );
   }
 }
 
 render(<App />, rootElement);
 ```
+
+可以看到 React 的代码已经是组件化的写法，和我们现在用三大框架写的代码比较接近。
 
 除了 React，当时还接触了 ECharts、Nginx、PHP 的 CI 框架等技术，总结了一些技术文章（请叫我总结大师😎）。
 
@@ -290,6 +302,10 @@ export class AppComponent implements OnInit {
 }
 ```
 
+Angular 是一款能够跨 Web、移动 Web、移动应用、原生应用和桌面原生应用多个平台的前端框架，目前经过数十年的发展，已形成了一个庞大的生态，基于 Angular 的生态项目也是多如牛毛。
+
+它不仅仅是一个视图层，更是一个全能的前端框架，MVVM 架构、依赖注入、CLI、模块、组件、指令、服务、路由、管道、表单管理、SSR，几乎提供了前端应用开发的全套工具，这么庞大的工具，也让部分前端开发者觉得入门门槛太高，因此国内用 Angular 的前端开发者并不多，反而由于 Angular 的类和装饰器写法和 Java 比较类似，受不少后端开发着的青睐。
+
 这个阶段看书比较少，写文章比较多。
 
 - [《深入理解ES6》](https://book.douban.com/subject/27072230/)（作者：[美] Nicholas C. Zakas，豆瓣评分 9.3）
@@ -346,7 +362,9 @@ Vue：
 
 也是从这个阶段开始接触开源社区运营，这是一项我非常热爱的事情，虽然是业余时间在做，但我依然付出了大量时间和精力，我觉得这是一件很有价值的事情，对我自身成长也很有益。
 
-据 Github 官方统计，从2016年开始，Github 平台每年平均新增1000多万开发者、5000多万开源项目，且增幅呈现逐年递增的趋势。而中国的开发者参与开源的热情更是超过其他国家，不管是开发者还是开源项目的增长速度，中国都是名列前茅，2021年中国共有755万 GitHub 开发者，全球排名第二。
+做开源开发和在公司做业务开发有一个很大的差别就是，我不仅要负责项目架构演进和代码开发，还要负责项目的推广和运营，为项目吸引用户，为社区吸引贡献者参与共建，这让我得以接触到一个更广阔的开发者社区，认识很多优秀和勤奋的开发者，他们和我一样，是一群热爱技术、热爱生活的人。
+
+据 GitHub 官方统计，从2016年开始，Github 平台每年平均新增1000多万开发者、5000多万开源项目，且增幅呈现逐年递增的趋势。而中国的开发者参与开源的热情更是超过其他国家，不管是开发者还是开源项目的增长速度，中国都是名列前茅，2021年中国共有755万 GitHub 开发者，全球排名第二。
 
 我国在“十四五”规划中首次把开源纳入顶层设计, 从国家层面体现了对开源的重视，国内的华为、腾讯、阿里等多家大厂也都将开源作为公司战略的一部分，国内外开源呈现一片繁荣的景象，我相信开源的春天马上要来了，这是大趋所势。
 
@@ -471,7 +489,7 @@ onMounted(() => {
 
 技术书籍方面：
 
-- [《Vue.js设计与实现》](https://book.douban.com/subject/35768338/)（作者：霍春阳，豆瓣评分 9.4）
+- [《Vue.js 设计与实现》](https://book.douban.com/subject/35768338/)（作者：霍春阳，豆瓣评分 9.4）
 
 <img src="/assets/tech-overview-5.jpeg" alt="Vue.js设计与实现" width="400" />
 
