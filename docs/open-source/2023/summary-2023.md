@@ -223,8 +223,8 @@ OpenTiny 共策划7个项目，其中有2个项目中选，经过3个月的技�
 - [浅谈 Angular 变更检测~](https://juejin.cn/post/7217482458773274679)
 - [利用uplugin对比Webpack和Rollup插件系统](https://juejin.cn/post/7264600413701439499)
 - [将 DOM 节点导出 pdf 的 5 种方案与 demo](https://mp.weixin.qq.com/s/RTS1CvDgoBlSAhb9wpt6AQ)
-- [初识Nest.js]()
-- [为了 Vue 组件测试，你需要为每个事件绑定的方法加上括号吗？]()
+- [初识Nest.js](https://juejin.cn/post/7238627611264860218)
+- [为了 Vue 组件测试，你需要为每个事件绑定的方法加上括号吗？](https://juejin.cn/post/7301951583984599103)
 - [ChatGPT教我用200行代码写一个简版Vue框架——OpenTiny](https://juejin.cn/post/7242700247440293925)
 
 技术文章的撰写是非常耗时的，如果你看到一篇好的技术文章，请一定记得给它点个赞，这是对原创作者最好的鼓励。
