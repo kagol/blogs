@@ -66,9 +66,9 @@ export function sidebarTech() {
         { text: '通过 Quill API 实现对内容的完全控制', link: '/tech/2021/quill-api' },
         { text: '👍 Quill 模块化机制', link: '/tech/2020/quill-modularization-principle' },
         { text: '👍 Quill 内容渲染机制', link: '/tech/2020/quill-rendering-principle' },
-        { text: '👍 Quill 富文本编辑器的实践', link: '/tech/2021/quill-practice' },
         { text: '在富文本编辑器中插入一条中国龙', link: '/tech/2021/rich-text-editor-insert-dragon' },
         { text: '在富文本编辑器中玩贪吃蛇游戏', link: '/tech/2021/rich-text-editor-insert-snake-game' },
+        { text: '👍 Quill 富文本编辑器的实践', link: '/tech/2021/quill-practice' },
       ]
     },
     {

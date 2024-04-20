@@ -1,6 +1,6 @@
 # 在瀑布下用火焰烤饼：三步法助你快速定位网站性能问题
 
-![image](https://user-images.githubusercontent.com/9566362/201153043-57f29d9e-b9a5-478a-9586-e4ef601caa2f.png)
+![](/assets/performance-analysis-method-0.png)
 
 ## 引言
 

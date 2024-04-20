@@ -4,7 +4,7 @@
 
 > 看完了，好像感觉又没看
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3e59086ccf6d46acbe14268aae8d95a3~tplv-k3u1fbpfcp-watermark.image?)
+![](/assets/building-block-theory-develop-carousel-1.png)
 
 主要是那篇文章比较偏理论，列举的案例也太简单，因此决定写一篇实战类的文章。
 
@@ -16,7 +16,7 @@
 
 开发Carousel组件之前，我们先随便找一个涉及该组件的场景，比如[掘金活动](https://juejin.cn/events)页面里的这个：
 
-![掘金走马灯.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4e9c8966a1624ebba75ab9e46567c394~tplv-k3u1fbpfcp-watermark.image?)
+![](/assets/building-block-theory-develop-carousel-2.png)
 
 先分析下这个组件的`组成部分`和`核心交互`。
 
@@ -96,7 +96,7 @@ export default function usePage(defaultPageIndex = 1) {
 
 我们在`carousel.tsx`中引入并使用刚刚创建的`usePage`。
 
-```vue
+```jsx
 import { defineComponent } from 'vue'
 import usePage from './composables/use-page'
 
@@ -133,7 +133,7 @@ import { DCarousel } from './components/carousel'
 效果如下：
 
 
-![2022-01-10 08.34.58.gif](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7a6b0703a0954081b4bf305df84dd902~tplv-k3u1fbpfcp-watermark.image?)
+![](/assets/building-block-theory-develop-carousel-3.gif)
 
 ## 3 将分页功能与UI结合
 
@@ -147,7 +147,7 @@ import { DCarousel } from './components/carousel'
 
 然后将默认插槽内容放在容器里面。
 
-```vue
+```jsx
 import { defineComponent, renderSlot, useSlots } from 'vue'
 import usePage from './composables/use-page'
 import './carousel.scss'
@@ -202,13 +202,13 @@ export default defineComponent({
 
 效果如下：
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/904606803804438bb2190a7d358b216c~tplv-k3u1fbpfcp-watermark.image?)
+![](/assets/building-block-theory-develop-carousel-4.png)
 
 这样基本功能就完成了，最后我们完善下样式。
 
 给分页器加一个容器`carousel-pagination`，分页按钮加一个svg图标：
 
-```
+```html
 <div class="devui-carousel-pagination">
   <button class="arrow arrow-left" onClick={ prevPage }>
     <svg width="18px" height="18px" viewBox="0 0 16 16"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><polygon fill="#293040" fill-rule="nonzero" points="10.7071068 12.2928932 9.29289322 13.7071068 3.58578644 8 9.29289322 2.29289322 10.7071068 3.70710678 6.41421356 8"></polygon></g></svg>
@@ -279,7 +279,7 @@ export default defineComponent({
 效果：
 
 
-![2022-01-10 08.37.00.gif](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fd2ec70a43654bbbbc180589f02ba264~tplv-k3u1fbpfcp-watermark.image?)
+![](/assets/building-block-theory-develop-carousel-5.gif)
 
 把内容换成掘金的图片试试：
 
@@ -293,7 +293,7 @@ export default defineComponent({
 效果：
 
 
-![2022-01-10 08.37.43.gif](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/083b5af75b534211a7af93750b035ba0~tplv-k3u1fbpfcp-watermark.image?)
+![](/assets/building-block-theory-develop-carousel-6.gif)
 
 是不是已经和掘金活动页的轮播图非常接近了？
 
@@ -303,7 +303,7 @@ export default defineComponent({
 
 先在`carousel.tsx`中增加：
 
-```
+```jsx
 import { defineComponent, renderSlot, useSlots } from 'vue'
 import usePage from './composables/use-page'
 import './carousel.scss'
@@ -363,13 +363,13 @@ export default defineComponent({
 效果如下：
 
 
-![2022-01-10 08.29.42.gif](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5fbed4c2e39444d2bb195e7b9860faa4~tplv-k3u1fbpfcp-watermark.image?)
+![](/assets/building-block-theory-develop-carousel-7.gif)
 
-![2022-01-10 08.30.12.gif](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b4a0ace7ab994f14a01cbfe6ab4bd410~tplv-k3u1fbpfcp-watermark.image?)
+![](/assets/building-block-theory-develop-carousel-8.gif)
 
 至此，功能完备的`Carousel`组件已经实现，用起来也非常简单，只需要把需要轮播的内容放到组件里面即可。
 
-```
+```html
 <DCarousel>
   <div class="carousel-item">page 1</div>
   <div class="carousel-item">page 2</div>
@@ -393,13 +393,13 @@ export default defineComponent({
 
 业界组件库的做法可能会增加一个api，比如`Element Plus`增加了一个`indicator-position`的api去实现这个功能，将这个值设置为`outside`，分页指示器就会在外面。
 
-![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fae13563893344fcb3ae56ef210685ce~tplv-k3u1fbpfcp-watermark.image?)
+![](/assets/building-block-theory-develop-carousel-9.png)
 
 这样做会有一个问题，就是如果我想将分页指示器放在左下角怎么办呢？
 
 比如B站这种：
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7bff3c2bc6584f0680176513061d837c~tplv-k3u1fbpfcp-watermark.image?)
+![](/assets/building-block-theory-develop-carousel-10.png)
 
 是不是又要给`indicator-position`加一个`bottom-left`之类的呢？如果用户想放在上面、右边等其他位置呢？
 
@@ -430,7 +430,7 @@ export default defineComponent({
 
 另外需要增加一个`count`以便于`carousel-indicator`渲染指定数量的小圆点。
 
-```vue
+```jsx
 import { defineComponent } from 'vue'
 import './carousel-indicator.scss'
 
@@ -475,7 +475,7 @@ export default defineComponent({
 
 第三步就是将`carousel`中和`carousel-indicator`相关的代码删除，使用子组件替换。
 
-```vue
+```jsx
 <div class="devui-carousel-indicator">
   {
     indicatorArr.map((item, index) => {
@@ -494,13 +494,13 @@ export default defineComponent({
 测试下效果和之前没有任何差别：
 
 
-![2022-01-10 08.31.27.gif](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2cf0521eb81148bfb0354806c828eb6e~tplv-k3u1fbpfcp-watermark.image?)
+![](/assets/building-block-theory-develop-carousel-11.gif)
 
 ### 5.2 增加 indicator 插槽
 
 在`carousel`增加`indicator`插槽逻辑：
 
-```vue
+```jsx
 {
   slots.indicator
   ? slots.indicator()
@@ -512,7 +512,7 @@ export default defineComponent({
 
 在`carousel/index.ts`文件中将`DCarouselIndicator`暴露出去。
 
-```vue
+```jsx
 import { App } from 'vue'
 import DCarousel from './src/carousel'
 import DCarouselIndicator from './src/components/carousel-indicator'
@@ -550,7 +550,7 @@ const { pageIndex } = usePage(1)
 我们发现指示器的位置已经移到了左下角，不过点击指示器并没有切换内容，点击左右分页器也没能改变指示器的高亮状态。
 
 
-![2022-01-10 08.26.33.gif](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f24ac137ac134218b0c49d62583013a6~tplv-k3u1fbpfcp-watermark.image?)
+![](/assets/building-block-theory-develop-carousel-12.gif)
 
 这是什么原因呢？
 
@@ -562,7 +562,7 @@ const { pageIndex } = usePage(1)
 
 因此要想办法将两者的状态同步，可以给`carousel`组件增加一个`v-model`双向绑定。
 
-```vue
+```jsx
 import { defineComponent, renderSlot, useSlots, watch, toRefs } from 'vue'
 import usePage from './composables/use-page'
 import DCarouselIndicator from './components/carousel-indicator'
@@ -637,19 +637,19 @@ export default defineComponent({
 - 点击指示器，页面内容也会相应地切换
 
 
-![2022-01-10 08.24.57.gif](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f0d1a932ebed4b6293680f9f4ed3e7cc~tplv-k3u1fbpfcp-watermark.image?)
+![](/assets/building-block-theory-develop-carousel-13.gif)
 
 ### 5.5 要定制指示器样式怎么办
 
 如果用户想要更多的定制能力，比如定制指示器的样式，改成B站这种小圆点的形式。
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7bff3c2bc6584f0680176513061d837c~tplv-k3u1fbpfcp-watermark.image?)
+![](/assets/building-block-theory-develop-carousel-14.png)
 
 这时我们内置的`DCarouselIndicator`组件已经满足不了用户的需求，需要做更深一层的定制，先给`DCarouselIndicator`组件增加默认插槽。
 
 在`carousel-indicator.tsx`文件中增加：
 
-```vue
+```jsx
 setup(props, { emit, slots }) {
   const indicatorArr = Array.from(new Array(props.count).keys())
   
@@ -730,7 +730,7 @@ const indicatorArr = Array.from(new Array(3).keys()) // 用于渲染指示器元
 
 效果：
 
-![2022-01-10 08.23.55.gif](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/70f56bebe29248928058d04e4d24710a~tplv-k3u1fbpfcp-watermark.image?)
+![](/assets/building-block-theory-develop-carousel-15.gif)
 
 ### 5.7 还想自定义分页器？
 

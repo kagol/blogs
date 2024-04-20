@@ -12,7 +12,7 @@
 
 Webpack是一个前端的模块管理工具(module bundler)，以下是webpack的官网：[http://webpack.github.io/](http://webpack.github.io/)，一进入官网可以看到下面这张大图：
 
-![image](https://user-images.githubusercontent.com/9566362/227753884-97560995-e1a9-48b8-9f25-4fe89785ac24.png)
+![](/assets/getting-started-with-webpack-1.png)
 
 
 这张图基本上解释了webpack是用来干嘛的，将一些相互依赖的模块(文件)，打包成一个或多个js文件，减少http请求次数，提升性能。这些相互依赖的模块可以是图片、字体、coffee文件、样式文件、less文件等。
@@ -23,7 +23,7 @@ Webpack是一个前端的模块管理工具(module bundler)，以下是webpack�
 
 1.先看下目录结构
 
-![image](https://user-images.githubusercontent.com/9566362/227753875-70a8bd2c-3833-42e3-8910-2f4fc25a0ac7.png)
+![](/assets/getting-started-with-webpack-2.png)
 
 
 2.安装Webpack及其他组件
@@ -43,7 +43,7 @@ npm install style-loader css-loader url-loader sass-loader raw-loader
 注意：除了webpack是全局安装之外，其他组件都是安装在app文件夹下面，会自动生成node_modules文件夹。
 
 3.配置文件webpack.config.js
-```
+```js
  1 module.exports = {
  2   context: __dirname + '/app',//上下文
  3   entry: './index.js',//入口文件
@@ -65,7 +65,7 @@ npm install style-loader css-loader url-loader sass-loader raw-loader
 
 4.入口文件index.js
 
-```
+```js
 1 var angular = require('angular');//引入angular
 2 var ngModule = angular.module('app',[]);//定义一个angular模块
 3 require('./directives/hello-world/hello-world.js')(ngModule);//引入指令(directive)文件
@@ -75,7 +75,7 @@ npm install style-loader css-loader url-loader sass-loader raw-loader
 require用于引入外部模块(可以是对象，可以是函数，可以是css样式，可以是html页面等)
 
 5.主页面index.html
-```
+```html
  1 <!DOCTYPE html>
  2 <html ng-app="app">
  3 <head lang="en">
@@ -94,7 +94,7 @@ require用于引入外部模块(可以是对象，可以是函数，可以是css
 可以看到主页面是非常干净清爽的，只引入了一个输出文件bundle.js，然后html标签里加了ng-app="app"。
 
 6.指令文件hello-world.js
-```
+```js
  1 module.exports = function(ngModule) {
  2   ngModule.directive('helloWorld', helloWorldFn);//定义指令，对应页面中的<hello-world></hello-world>
  3   require('./hello-world.scss');
@@ -118,7 +118,7 @@ require用于引入外部模块(可以是对象，可以是函数，可以是css
 module.exports用于将模块(文件)作为一个接口(一般是一个函数)暴露给外部。
 
 7.其他文件(style.css、hello-world.html、hello-world.scss)
-```
+```css
  1 @font-face{
  2     font-family: 'maozedong';
  3     src: url(../fonts/maozedong.ttf);
@@ -131,12 +131,12 @@ module.exports用于将模块(文件)作为一个接口(一般是一个函数)�
 10 }
 ```
  
-```
+```html
 1 <div class="hello-world">
 2   {{vm.greeting}}
 3 </div>
 ```
-```
+```css
 1 .hello-world {
 2   color: red;
 3   border: 1px solid green;
@@ -146,14 +146,14 @@ module.exports用于将模块(文件)作为一个接口(一般是一个函数)�
 8.编译和运行
 在命令行工具中输入：webpack，即可编译，这时我们会遇到第一个坑：
 
-![image](https://user-images.githubusercontent.com/9566362/227753856-85e32497-4daf-4bba-8177-774f881ec0f6.png)
+![](/assets/getting-started-with-webpack-3.png)
 
 
 这个错误的关键行在"You may need an appropriate loader to handle the file type"，大概意思就是你的加载器(loader)不正确，可是我们明明安装上了所有的加载器啊，也在配置文件中引用了呀，我在网上找了很久都没找到问题所在，后来还是一位细心的同事帮我解决这个问题的，原来问题出在配置文件中的"module"下的"loader"应该是"loaders"，就因为少了一个"s"，浪费我一上午的时间。
 
 修改过来之后，编译通过了，我们在浏览器中打开主页面index.html，这时遇到了第二个坑：
 
-![image](https://user-images.githubusercontent.com/9566362/227753846-e553a501-9d8d-41dd-bc13-b5521bf2ac9e.png)
+![](/assets/getting-started-with-webpack-4.png)
 
 
 大概意思是你跨域了，不能加载hello-world.html这个文件，问题出在指令文件hello-world.js中的引用模板地址的代码：
@@ -161,7 +161,7 @@ module.exports用于将模块(文件)作为一个接口(一般是一个函数)�
 templateUrl: 'directives/hello-world/hello-world.html'
 ```
 在网上搜到一个解决办法，就是使用Node.js自带的的http-server，以下是server.js的代码：
-```
+```js
 1 var port = 8000,
 2     express = require('express'),
 3     app = express();
@@ -173,8 +173,9 @@ templateUrl: 'directives/hello-world/hello-world.html'
 使用之前要先安装express：npm install express，然后在命令行工具中输入node server.js开启服务，这时在浏览器中输入：localhost:8000/index.html即可访问主页面。
 
 另外一个方法是用require的方式引入hello-world.html：
-
+```
 template: require('./hello-world.html')
+```
 
 ## 3 补充
 
@@ -192,7 +193,7 @@ npm install webpack-dev-server -g
 ```
 然后在命令行中输入：webpack-dev-server --progress --colors，显示以下结果：
 
-![image](https://user-images.githubusercontent.com/9566362/227753838-19a238d7-68fa-4a9f-bdba-f69313e8a689.png)
+![](/assets/getting-started-with-webpack-5.png)
 
 这时在浏览器中输入：localhost:8080(localhost:8080/webpack-dev-server)，你对静态资源的任何改动都会直接反映到主页面中。
 
@@ -208,7 +209,7 @@ npm install webpack-dev-server -g
 
 有朋友反映 webpack 的模块加载器不加后缀 "-loader" 会报错，原因是webpack官方已经把自动加"-loader"的机制去掉，为什么移除这一特性官方有做[解释](https://github.com/webpack/webpack/issues/2986)，所以更新了下 webpack.config.js 文件：
 
-```
+```js
 module: {
     loaders: [//加载器
         {test: /\.html$/, loader: 'raw-loader'},
@@ -221,7 +222,7 @@ module: {
 
 报错截图：
 
-![image](https://user-images.githubusercontent.com/9566362/227753824-d4b6beeb-9790-4b96-96b5-36860d311cf1.png)
+![](/assets/getting-started-with-webpack-6.png)
 
 还有一个常见的问题，就是 node-sass 模块的安装问题，直接 npm install -g node-sass 的方式安装在windows下会失败(貌似是网络问题，要FQ)，需要用淘宝的npm镜像。
 

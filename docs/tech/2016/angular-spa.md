@@ -1,10 +1,8 @@
 # 使用 Angular 构建单页面应用(SPA)
 
-什么是SPA？看下图就是SPA：
+什么是SPA？
 
-![image](https://user-images.githubusercontent.com/9566362/227754042-f7bcbb75-fdac-404f-a286-99afc3a4c145.png)
-
-下面说正经的，个人理解SPA就是整个应用只有一个页面，所有的交互都在一个页面完成，不需要在页面之间跳转。
+个人理解SPA就是整个应用只有一个页面，所有的交互都在一个页面完成，不需要在页面之间跳转。
 
 单页面的好处是更快的响应速度，更流畅的用户体验，甚至和桌面应用或者原生App一样流畅。
 
@@ -12,17 +10,17 @@
 
 本文介绍如何用Angular构建SPA，其他的依葫芦画瓢就是了，原理都差不多。
 
-![image](https://user-images.githubusercontent.com/9566362/227754053-d1722108-c681-4e16-a7d0-eb32b5809646.png)
+![](/assets/angular-spa-1.png)
 
 ## 1 Demo 效果图
 
-![image](https://user-images.githubusercontent.com/9566362/227754060-eba65030-fa50-4d03-b206-23782baeb6d4.png)
+![](/assets/angular-spa-2.png)
 
 ## 2 代码结构
 
 这个 Demo 使用 Angular 和 Angular Route 技术实现，相应地引入了 angular 和 angular-route 两个库，先看下代码结构，有个直观的印象：
 
-![image](https://user-images.githubusercontent.com/9566362/227754067-caac3ff2-d824-486d-b28a-511870d077b9.png)
+![](/assets/angular-spa-3.png)
 
 ## 3 具体实现
 

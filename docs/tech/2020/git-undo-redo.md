@@ -1,10 +1,10 @@
 # 使用Git，10件你可能需要“反悔”的事
 
-![image](https://user-images.githubusercontent.com/9566362/201147899-b882aa73-32f6-4252-abe6-c14cf4b88acf.png)
+![](/assets/git-undo-redo-1.png)
 
 ## 前言
 
-[Git](https://link.juejin.cn/?target=https%3A%2F%2Fgit-scm.com%2Fbook%2Fzh%2Fv2%2F%25E8%25B5%25B7%25E6%25AD%25A5-Git-%25E6%2598%25AF%25E4%25BB%2580%25E4%25B9%2588%25EF%25BC%259F)是目前世界上最优秀最流行的分布式版本控制系统，也是程序员们日常使用最频繁的工具之一（几乎每天都需要使用它来对源代码进行版本管理）。
+[Git](https://git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-Git-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F)是目前世界上最优秀最流行的分布式版本控制系统，也是程序员们日常使用最频繁的工具之一（几乎每天都需要使用它来对源代码进行版本管理）。
 
 使用Git的过程，难免由于手快或者别的什么原因，需要对做过的事情进行“反悔”或者多次“反悔”。不用担心，Git强大到几乎任何操作都是可以“反悔”的，让我们一起来看看吧。
 
@@ -13,7 +13,7 @@
 在介绍Git“反悔”操作之前，先简单提及下Git的一些基础知识。
 Git项目有3个区域：工作区、暂存区和Git仓库（分成本地仓库和远程仓库）。如下图：
 
-![image](https://user-images.githubusercontent.com/9566362/201148277-8dfc0b53-e18a-48aa-9cd4-07459a131f6c.png)
+![](/assets/git-undo-redo-2.png)
 
 
 本地编写的代码，不执行任何git命令，处于工作区。
@@ -30,7 +30,7 @@ git diff
 
 显示的格式如下图所示：
 
-![image](https://user-images.githubusercontent.com/9566362/201148415-a8ddd447-48c4-418d-97dd-739ebcda6e57.png)
+![](/assets/git-undo-redo-3.png)
 
 
 如果我们不想要这些代码本地代码（比如一些临时的测试代码），可以通过以下命令一次性撤销所有本地修改：
@@ -70,7 +70,7 @@ git diff --staged
 git reset .
 ```
 
-![image](https://user-images.githubusercontent.com/9566362/201148695-518682ad-0358-404b-a15f-8a26c21dd774.png)
+![](/assets/git-undo-redo-4.png)
 
 
 > 注意：该命令可以二次“反悔”，通过`git add .`命令可以将文件再一次添加到暂存区。
@@ -105,7 +105,7 @@ git commit -m "modify some files"
 
 此时提交历史里面会有一条记录`f8651ff`（Commit ID）：
 
-![image](https://user-images.githubusercontent.com/9566362/201149017-85c14edc-64e5-4221-9169-876ccccf5f56.png)
+![](/assets/git-undo-redo-5.png)
 
 如果我们不想要这次修改的内容，有以下2种方法：
 
@@ -117,11 +117,11 @@ git commit -m "modify some files"
 ```
 git checkout a18c6fa
 ```
-![image](https://user-images.githubusercontent.com/9566362/201149143-dd52ff51-673a-4c08-8dd3-09b949df35ef.png)
+![](/assets/git-undo-redo-6.png)
 
 
 执行`git log`命令，发现已经回到之前的提交：
-![image](https://user-images.githubusercontent.com/9566362/201149164-dac6141e-c0bb-446a-911a-ad0be7c73790.png)
+![](/assets/git-undo-redo-7.png)
 
 ### 方法二
 
@@ -130,11 +130,11 @@ git checkout a18c6fa
 ```
 git reset --hard HEAD~1
 ```
-![image](https://user-images.githubusercontent.com/9566362/201149233-888dac72-105c-4b25-92ff-68d4ce3acea6.png)
+![](/assets/git-undo-redo-8.png)
 
 
 效果和方法一一样：
-![image](https://user-images.githubusercontent.com/9566362/201149248-e517da43-bcbb-4aa0-a648-d7b16854c080.png)
+![](/assets/git-undo-redo-9.png)
 
 注意：该命令是可以二次“反悔”的，具体步骤如下：
 
@@ -152,7 +152,7 @@ git add src/app/app.component.html
 git commit -m "add test block"
 git log
 ```
-![image](https://user-images.githubusercontent.com/9566362/201149393-f0271a38-7823-4ff9-be02-8682560a13c0.png)
+![](/assets/git-undo-redo-10.png)
 
 这样其实只提交了app.component.html一个文件，不是我们想要的。
 
@@ -163,7 +163,7 @@ git add src/app/app.component.css
 git commit --amend
 ```
 
-![image](https://user-images.githubusercontent.com/9566362/201149424-06383ed0-450d-4a5a-b8db-9c4f1b5760f3.png)
+![](/assets/git-undo-redo-11.png)
 
 
 还有一种场景可能更加常见，没有遗漏的文件，只是提交信息里有一个单词写错了，可以使用以下命令进行修补：
@@ -180,7 +180,7 @@ git commit --amend -m "add test container"
 
 比如：Commit ID为`711bb0b`的提交，该次提交将`<a>`标签的`target`属性由`"_blank"`改成了`"_self"`。
 
-![image](https://user-images.githubusercontent.com/9566362/201149528-d9e79983-d0a7-4cf2-8037-059f5ba814a4.png)
+![](/assets/git-undo-redo-12.png)
 
 可以使用以下命令撤销该次提交（将提交的内容“反操作”），并生成一个新的提交在最前面：
 
@@ -188,7 +188,7 @@ git commit --amend -m "add test container"
 git revert 711bb0b
 ```
 
-![image](https://user-images.githubusercontent.com/9566362/201149545-6aaa4e65-dedf-4eed-bdf1-89c915f0c61b.png)
+![](/assets/git-undo-redo-13.png)
 
 revert之后，会在提交历史的最前面生成一个新的Commit ID（1f49a42），该次提交将`<a>`标签的target属性由"_self"改回了"_blank"。
 
@@ -196,9 +196,9 @@ revert之后，会在提交历史的最前面生成一个新的Commit ID（1f49a
 
 两个分支改了同一个文件的同一个地方，合并时将出现冲突：
 
-![image](https://user-images.githubusercontent.com/9566362/201149726-a3e9ae9d-a030-4f04-853a-4fe6d59d3945.png)
+![](/assets/git-undo-redo-14.png)
 
-![image](https://user-images.githubusercontent.com/9566362/201149744-5dd7760c-a81f-4f76-8c43-aaea6b3b0e7f.png)
+![](/assets/git-undo-redo-15.png)
 
 
 如果不想解决冲突，想撤销这个合并，可以使用以下命令：
@@ -229,7 +229,7 @@ git br -m [old_br] [new_br]
 git co rebase_test
 git rebase master
 ```
-![image](https://user-images.githubusercontent.com/9566362/201149964-e88b949d-9b45-4227-bf5c-f60be96bdb13.png)
+![](/assets/git-undo-redo-16.png)
 
 
 撤销的步骤如下：
@@ -237,7 +237,7 @@ git rebase master
 1. 使用 git reflog 命令找到变基前的提交 09b0adc
 2. 使用 git reset --hard 09b0adc 重置到该提交
 
-![image](https://user-images.githubusercontent.com/9566362/201149989-90cb3080-6da6-46c4-9281-c38082bdd139.png)
+![](/assets/git-undo-redo-17.png)
 
 
 ## 10.以脚本方式改写提交

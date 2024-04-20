@@ -43,19 +43,19 @@ TinyEngine 低代码引擎 9月底正式对外开源，3个月不到已经收获
 | PR | 9 / 833 | 9 / 79 |
 | Contributor | 62 | 13 |
 
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ec71535f2f374f088a8d8ff0c1452ca2~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1794&h=1168&s=137349&e=png&b=ffffff)
+![](/assets/summary-2023-1.png)
 
 图1：Star 数增长趋势
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/012ac32fd4b64a67a99859fce056093c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=800&h=722&s=53256&e=png&b=fefefe)
+![](/assets/summary-2023-2.png)
 
 图2：npm 周下载量
 
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8668ffb79eee44909da77f5b399fbdab~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1712&h=1130&s=114067&e=png&b=ffffff)
+![](/assets/summary-2023-3.png)
 
 图3：贡献者增长趋势
 
-![开源中国2023优秀开源项目.jpeg](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/132865c3105a48dbb2fb5ecc36509815~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1080&h=1620&s=610530&e=jpg&b=fdfdfd)
+![](/assets/summary-2023-4.png)
 
 图4：开源中国2023年优秀开源技术团队
 
@@ -82,13 +82,13 @@ TinyVue 项目本身的总结和规划，在之前的文章中已经阐述过，
 
 4月26日的开发者日·东莞站，是我参加的第一个开发者大会，我们 OpenTiny 有展台，吸引了不少企业开发者来了解 OpenTiny。
 
-![WechatIMG839.jpeg](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/716a28dbf2b7410c864f06b83e27108c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1920&h=1280&s=581191&e=jpg&b=dbbde4)
+![](/assets/summary-2023-5.png)
 
 图5：OpenTiny 参加开发者日·东莞站
 
 活动结束之后，我还有幸参加企业数字化转型的闭门会，与多位企业主深入交流传统企业数字化转型面临的机遇和挑战，OpenTiny 能够在其中发挥什么价值。
 
-![WechatIMG840.jpeg](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7c7c8a537a6144a7a446a8b052099397~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1920&h=1280&s=479457&e=jpg&b=2c2c22)
+![](/assets/summary-2023-6.png)
 
 图6：开发者日·东莞站 - 探讨 OpenTiny 能在传统企业数字化转型中发挥的作用
 
@@ -96,7 +96,7 @@ TinyVue 项目本身的总结和规划，在之前的文章中已经阐述过，
 
 PS：许愿过程中，蛋糕居然烧起来了，似乎预示了 OpenTiny 日后必然要红红火火😝
 
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/83136593b3fa4451aaea1e078a293161~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1006&h=1796&s=1449081&e=png&b=372dcf)
+![](/assets/summary-2023-7.png)
 
 图7：在“欧洲小镇”给 Kagol 过生日
 
@@ -106,19 +106,19 @@ PS：许愿过程中，蛋糕居然烧起来了，似乎预示了 OpenTiny 日�
 
 6月11-13日在北京举行的开放原子全球开源峰会是一场开源的盛会，不仅有丰富的分享议题、大型开源展台，还有多名央视记者进行专题采访和报道。
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4a286ca2fe5645298e69d009bc62c96a~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=4072&h=2220&s=6366400&e=png&b=181317)
+![](/assets/summary-2023-8.png)
 
 图8：开放原子全球开源峰会 - 央视新闻报道
 
 我们 OpenTiny 也很荣幸参与其中，我做了一场 OpenSpeech，给开发者们分享 OpenTiny 前端组件库的亮点和优势，并通过展台与开发者交流，让更多开发者体验前端组件库的魅力。
 
-![WechatIMG842.jpeg](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d238a08c40504a79a437fdf31a64eb16~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1920&h=1280&s=453522&e=jpg&b=cedff3)
+![](/assets/summary-2023-9.png)
 
 图9：开放原子全球开源峰会 - OpenSpeech 演讲
 
 三天忙碌的活动结束之后，大家都觉得很开心，于是决定约上北京的朋友们一起聚一聚，逛逛大北京，一起看电影、吃火锅、游北海公园，感受到了帝都的魅力。
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/886102dd7d654605961d323d4b7e6a24~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2344&h=1768&s=5823206&e=png&b=d6ccc1)
+![](/assets/summary-2023-10.png)
 
 图10：Kagol 和朋友们相聚
 
@@ -128,13 +128,13 @@ PS：许愿过程中，蛋糕居然烧起来了，似乎预示了 OpenTiny 日�
 
 7月7-9日在东莞松山湖举办 HDC 大会，在这个童话般的“欧洲小镇”中，[OpenTiny 重磅发布](https://juejin.cn/post/7254020450160934973)，实现跨端、跨框架、跨版本企业级应用前端。
 
-![WechatIMG848.jpeg](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3a5da446c7584370993a60ba341e8206~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1920&h=1280&s=238889&e=jpg&b=eee8e7)
+![](/assets/summary-2023-11.png)
 
 图11：HDC 大会 - OpenTiny 正式发布
 
 除了分享议题，OpenTiny 还设有展台、Codelabs 训练营、极客挑战赛。通过展台互动，我们可以近距离与开发者互动，给大家分享 OpenTiny 的独特优势，倾听开发者的声音，了解用户的痛点问题；通过编程训练营，可以带着开发者一起体验 OpenTiny，快速搭建 Web 应用。
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5cf6c12141a14e66bdc03327339725e7~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2556&h=1722&s=5209047&e=png&b=d9d2c6)
+![](/assets/summary-2023-12.png)
 
 图12：HDC 大会 - OpenTiny 展台、编程训练营
 
@@ -161,11 +161,11 @@ OpenTiny 共策划7个项目，其中有2个项目中选，经过3个月的技�
 
 感谢两位导师 Jay 和 GaoNeng 的悉心指导和配合，也祝贺 Mr 栋、常浩顺利完成项目，你的付出，别人是能看到的。
 
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cd5c49b39250429eb43d75ff4acbd20c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2744&h=1898&s=406103&e=png&b=ffffff)
+![](/assets/summary-2023-13.png)
 
 图13：OpenTiny 参与开源之夏
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/399d87e4b67048afb39a8aba0e553247~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=3518&h=1998&s=1415755&e=png&b=f9f9f9)
+![](/assets/summary-2023-14.png)
 
 图14：开源之夏 - OpenTiny React 项目启动会
 
@@ -237,7 +237,7 @@ OpenTiny 共策划7个项目，其中有2个项目中选，经过3个月的技�
 
 今年共输出 `56` 篇推广文章，主要包含新项目发布、新版本发布、项目特性介绍、使用指南、活动预热和总结等，其中一半以上的推广文章都是小圆同学写的，小圆同学为 OpenTiny 的推广付出了非常大的努力，值得一个大大的赞。
 
-![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5d3eaac4a6444b7e9c28787c0a962abb~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=204&h=192&s=14777&e=png&b=fefafa)
+![](/assets/summary-2023-15.png)
 
 新项目发布：
 - 14k🔖112👍[低代码引擎 TinyEngine 正式发布！！！](https://juejin.cn/post/7280926568854667299)
@@ -359,7 +359,7 @@ OpenTiny 的开源事业，离不开所有支持 OpenTiny 的朋友们的帮助�
 
 加油吧，少年！
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/be4571398b7345a6ae56564ef9edbaa3~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=3136&h=862&s=3560689&e=png&b=dad0c9)
+![](/assets/summary-2023-16.png)
 
 图15：牛油果🥑盆栽的种植历程
 

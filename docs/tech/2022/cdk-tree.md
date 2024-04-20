@@ -1,6 +1,6 @@
 # 从 CDK Tree 源码学习如何开发一个UI无关的 Tree 组件
 
-![image](https://user-images.githubusercontent.com/9566362/201374278-cf513fd4-5596-41ba-a97e-f7c5110793f9.png)
+![](/assets/cdk-tree-1.png)
 
 Angular CDK 是一个 Angular 组件开发工具箱，也是 [Material UI](https://github.com/angular/components) 组件库(Angular)的底层基座，是其UI无关或弱UI的部分(tree-control是真正UI无关的核心)。
 
@@ -110,7 +110,7 @@ export class TreeBaseDemoComponent {
 ```
 
 效果如下：
-![image](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c8b7d258d7c04ff2892d67eb3f3975ef~tplv-k3u1fbpfcp-zoom-1.image)
+![](/assets/cdk-tree-2.png)
 
 
 ## 2 源码结构

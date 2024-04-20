@@ -1,6 +1,6 @@
 # 点线面 Vue3：先跑起来再说！
 
-![image](https://user-images.githubusercontent.com/9566362/201514022-0391871c-7af5-4885-bebb-50166743171f.png)
+![](/assets/getting-started-with-vue-1.png)
 
 一直觉得框架只是工具，工作中用不上就没必要去学，要用的时候再去学习即可。
 
@@ -80,7 +80,7 @@ Done. Now run:
 
 按照提示操作，我们很快就能将项目跑起来了！
 
-![vite.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/222251fe505a411f8f1c9a190f828b57~tplv-k3u1fbpfcp-watermark.image)
+![](/assets/getting-started-with-vue-2.png)
 
 ## 2 Vue 组件初步印象
 
@@ -95,7 +95,7 @@ Done. Now run:
 - 中间是一个`<script lang="ts">`标签
 - 最下面是一个`<style scoped>`标签
 
-![HelloWorld.vue.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/71aae96d8b8648a1ab1a8578330fbc6b~tplv-k3u1fbpfcp-watermark.image)
+![](/assets/getting-started-with-vue-3.png)
 
 这和我们最早学习前端编写html页面的结构是一样的，将`HTML`/`CSS`/`JavaScript`分成三个区块。
 
@@ -112,7 +112,7 @@ Done. Now run:
 
 先看下`<template>`，里面元素比较多，先都收起来，看下大致结构。
 
-![template.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/180766c7c7e74374a4d34aaa58976b8f~tplv-k3u1fbpfcp-watermark.image)
+![](/assets/getting-started-with-vue-4.png)
 
 我们注意到里面就是一些html元素，似乎和写html没什么区别，不过仔细一看，还有会有些不同：
 - 首先就是第2行的双大括号包裹的部分`{{ msg }}`，这和我们之前写的html有点不一样，这是一种Vue的模板语法，叫[文本插值](https://vue3js.cn/docs/zh/guide/template-syntax.html#%E6%96%87%E6%9C%AC)，里面的msg是组件的变量，变量的值会被渲染到`<h1>`标签里面。
@@ -143,11 +143,11 @@ hot module replacement(HMR).
 
 看下页面会有什么变化。
 
-![Vite热更新-template.gif](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c69ce5d853e642e8b678fceb4b57a65e~tplv-k3u1fbpfcp-watermark.image)
+![](/assets/getting-started-with-vue-5.gif)
 
 从以上动图可以看出，修改完`template`中的内容，一保存文件，页面内容立马刷新，几乎没有任何延迟，页面也没有刷新，开发体验非常丝滑。
 
-![猫猫震惊.gif](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ae4f6d311fd54fb79d1240b7c00c6766~tplv-k3u1fbpfcp-watermark.image)
+![](/assets/getting-started-with-vue-6.gif)
 
 ## 4 \<script\> 分析
 
@@ -156,7 +156,7 @@ hot module replacement(HMR).
 
 模板部分我们已经有了一个初步的了解，再来看看脚本部分。
 
-![script.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b444d74ec64d4c319978642036a587a8~tplv-k3u1fbpfcp-watermark.image)
+![](/assets/getting-started-with-vue-7.png)
 
 ### 4.1 导入Vue方法
 
@@ -225,13 +225,13 @@ Vue组件通过`defineComponent`方法来定义，该方法的参数是一个对
 - 声明组件
 - 使用组件
 
-![使用组件.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2d825aca830c4721a6f007e56628934d~tplv-k3u1fbpfcp-watermark.image)
+![](/assets/getting-started-with-vue-8.png)
 
 ### 4.5 Vite热更新 - script
 
 我们尝试修改下这个msg的值（比如改成：`Hello everyone! I'm learning Vue 3 + TypeScript + Vite`），看下页面会有什么变化。
 
-![Vite热更新-script.gif](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3ae6f87201cc43d1848f796ca258dcfa~tplv-k3u1fbpfcp-watermark.image)
+![](/assets/getting-started-with-vue-9.gif)
 
 从以上动图可以看出，与修改`template`的效果一样，修改完msg的值，一保存文件，页面内容立马刷新，之前的：
 
@@ -247,7 +247,7 @@ Hello everyone! I'm learning Vue 3 + TypeScript + Vite
 
 几乎没有任何延迟，页面也没有刷新，开发体验非常丝滑。
 
-![猫猫震惊2.gif](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/75cb63de090f4c6caf97ebc306e61520~tplv-k3u1fbpfcp-watermark.image)
+![](/assets/getting-started-with-vue-10.gif)
 
 ### 4.6 响应式的ref对象
 
@@ -276,7 +276,7 @@ const count = 0
 
 为了理解ref函数的作用，我们先尝试在页面里点击一下这个`count is: 0`的按钮。
 
-![button.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dc8004b4c6014c668f5226d629751759~tplv-k3u1fbpfcp-watermark.image)
+![](/assets/getting-started-with-vue-11.png)
 
 点击完发现里面的值立马变成：
 
@@ -307,7 +307,7 @@ const count = 0
 有一个需要注意的点：
 > setup中定义的变量必须返回，才能在template中使用，否则插值不会被渲染，并且会在浏览器控制台警告提示这个变量没有在实例中定义。
 
-![warn.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/84253ee22b094d038969e0f3ca723aa2~tplv-k3u1fbpfcp-watermark.image)
+![](/assets/getting-started-with-vue-12.png)
 
 ```
 [Vue warn]: Property "count" was accessed during render but is not defined on instance.
@@ -347,7 +347,7 @@ Uncaught SyntaxError: unexpected token: identifier
 
 前面定义的`Size`类型也出现了红色的波浪下划线。
 
-![Size.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dbde8365faca418a8f78122b590f965e~tplv-k3u1fbpfcp-watermark.image)
+![](/assets/getting-started-with-vue-13.png)
 
 提示type类型声明必须在TypeScript文件中使用：
 
@@ -375,7 +375,7 @@ return { addSize } // 记得返回哦
 
 如果将size赋值为Size类型定义的值，比如：`large`，[Vetur](https://vuejs.github.io/vetur/)类型检查马上就会提示，相应的赋值代码也会出现红色波浪下划线：
 
-![ts.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/93aa431338b74f2083cebfaa3686a293~tplv-k3u1fbpfcp-watermark.image)
+![](/assets/getting-started-with-vue-14.png)
 
 这时我们能够立即警觉：
 > 这里的代码可能写得有问题
@@ -425,7 +425,7 @@ code {
 
 为了理解局部样式的含义，我们在其他组件中也写一个`<code>`标签，看下它的样式是不是和HelloWorld组件中的一样，HelloWorld组件中，code标签样式是这样的（有一个灰色的背景色）：
 
-![code.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/33af2073ba4b4ec2b56986cc9c90d435~tplv-k3u1fbpfcp-watermark.image)
+![](/assets/getting-started-with-vue-15.png)
 
 ```
 code {
@@ -442,13 +442,13 @@ code {
 <code>Vue DevUI</code>
 ```
 
-![App.vue.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/31adf601d7bf424cb668f4a50fcced1f~tplv-k3u1fbpfcp-watermark.image)
+![](/assets/getting-started-with-vue-16.png)
 
 发现在HelloWorld组件的style中写的样式并不会影响App组件中的code，这就是局部样式。
 
 通过对比两者的html元素，发现HelloWorld组件中的元素都加上了一个`data-v-`开头的特殊属性，相应的css规则也加上了这个选择器。
 
-![scoped.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5e63dd660150492b8dfe39225e3ee177~tplv-k3u1fbpfcp-watermark.image)
+![](/assets/getting-started-with-vue-17.png)
 
 这一点和Angular中的`encapsulation`属性非常类似。
 

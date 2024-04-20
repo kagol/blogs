@@ -1,6 +1,6 @@
 # 前端 Vuer，请给你的项目加上 ESLint
 
-![image](https://user-images.githubusercontent.com/9566362/201374882-510b7641-0c33-4966-8765-d8e23cfc632c.png)
+![](/assets/vue-eslint-1.png)
 
 ## 1 ESLint 是什么
 
@@ -11,24 +11,24 @@ ESLint 是一个插件式的 JavaScript / JSX 代码检查工具，用于检测�
 使用 Vue CLI 搭建的 Vue2 项目已经自带 ESLint，就不赘述，我们看下 Vite 搭建的 Vue3 项目中怎么引入 ESLint。
 
 使用以下命令搭建一个 Vue3 项目：
-```
+```shell
 npm create vite@latest vue3-project
 ```
 
 创建之后，启动起来：
-```
+```shell
 npm i
 npm run dev
 ```
 
 效果如下：
 
-![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5be6c6cf5a1542328345b64e7254b863~tplv-k3u1fbpfcp-watermark.image?)
+![](/assets/vue-eslint-2.png)
 
 ### 2.1 引入 ESLint
 
 执行以下命令：
-```
+```shell
 npm init @eslint/config
 ```
 
@@ -181,7 +181,7 @@ module.exports = {
 
 在 package.json 文件的 scripts 中配置 lint 脚本命令：
 
-```
+```json
 "scripts": {
   "dev": "vite",
   "build": "vue-tsc --noEmit && vite build",
@@ -194,7 +194,7 @@ module.exports = {
 
 执行 lint 脚本命令：
 
-```
+```shell
 npm run lint
 ```
 
@@ -230,7 +230,7 @@ npm run lint
 ### 2.4 自动修复 ESLint 问题
 
 在 scripts 中增加自动修复 ESLint 问题的脚本命令：
-```
+```json
 "scripts": {
   "dev": "vite",
   "build": "vue-tsc --noEmit && vite build",
@@ -243,14 +243,14 @@ npm run lint
 ```
 
 执行：
-```
+```shell
 npm run lint:fix
 ```
 
 执行自动修复的命令之后，所有分号都加上了，未使用的变量也自动移除了。
 
 再次执行：
-```
+```shell
 npm run lint
 ```
 
@@ -264,7 +264,7 @@ npm run lint
 
 - 第一步：安装 husky 和 lint-staged
 
-```
+```shell
 npm i lint-staged husky -D
 ```
 
@@ -285,7 +285,7 @@ npm i lint-staged husky -D
 
 - 第三步：执行 prepare 脚本
 
-```
+```shell
 npm run prepare
 ```
 
@@ -295,13 +295,13 @@ npm run prepare
 
 执行以下命令，会在`.husky`目录自动生成`pre-commit`文件钩子。
 
-```
+```shell
 npx husky add .husky/pre-commit "npx lint-staged"
 ```
 
 - 第五步：增加 lint-staged 配置
 
-```
+```json
 "lint-staged": {
   "src/**/*.{vue,ts}": "eslint --fix"
 },
@@ -380,7 +380,7 @@ PR 的提交者看到提示，也可以点到任务里面去看是哪里报错�
 
 比如Pagination组件的单元测试文件`pagination.spec.ts`中：
 
-```
+```ts
 const wrapper = mount({
     components: {
         DPagination
@@ -397,7 +397,7 @@ expect(btns.map((ele: any) => ele.text()).join()).toEqual('<,1,...,4,5,6,...,16,
 
 解决办法是给`ele`加上明确的类型，看逻辑是`<button>`元素，由于是`@vue/test-utils`库的包裹元素，因此需要包一层`DOMWrapper`：
 
-```
+```ts
 import { DOMWrapper } from '@vue/test-utils';
 
 expect(btns.map((ele:  DOMWrapper<Element>) => ele.text()).join()).toEqual('<,1,...,4,5,6,...,16,>');
@@ -409,7 +409,7 @@ expect(btns.map((ele:  DOMWrapper<Element>) => ele.text()).join()).toEqual('<,1,
 
 比如Pagination组件的`pagination.tsx`中：
 
-```
+```ts
     // 极简模式下，可选的下拉选择页码
     const litePageOptions = computed(() =>  liteSelectOptions(totalPages.value));
 
@@ -436,7 +436,7 @@ expect(btns.map((ele:  DOMWrapper<Element>) => ele.text()).join()).toEqual('<,1,
 
 解决的方法就是将`totalPages`的声明放在`litePageOptions`和`cursor`之前。
 
-```
+```ts
     // 总页数
     const totalPages = computed(() => Math.ceil(props.total / props.pageSize));
 
@@ -451,7 +451,7 @@ expect(btns.map((ele:  DOMWrapper<Element>) => ele.text()).join()).toEqual('<,1,
 
 该问题是因为函数缺少返回类型，比如Fullscreen组件`utils.ts`文件的`launchImmersiveFullScreen`方法中：
 
-```
+```ts
 export const launchImmersiveFullScreen = async (docElement: any) => {
   let fullscreenLaunch = null;
   if (docElement.requestFullscreen) {
@@ -469,7 +469,7 @@ export const launchImmersiveFullScreen = async (docElement: any) => {
 
 先看下`launchImmersiveFullScreen`方法的参数问题，`docElement`用了`any`，也缺失了返回类型，`docElement`其实就是`document`对象，可以使用`HTMLElement`类型，但是`launchImmersiveFullScreen`这个方法是用来启动沉浸式全屏的，为了实现浏览器兼容，比如使用了`docElement.mozRequestFullScreen`兼容火狐，而这些方法在HTMLElement中是没有的，会报TS类型错误，所以需要做一些改造。
 
-```
+```ts
 interface CompatibleHTMLElement extends HTMLElement {
   mozRequestFullScreen?: () => void;
   webkitRequestFullScreen?: () => void;
@@ -479,7 +479,7 @@ interface CompatibleHTMLElement extends HTMLElement {
 
 这里定义了一个`CompatibleHTMLElement`的类型，继承了`HTMLElement`，并增加了一些自定义的方法。
 
-```
+```ts
 export const launchImmersiveFullScreen = async (docElement: CompatibleHTMLElement) => {
   ...
 }
@@ -487,13 +487,13 @@ export const launchImmersiveFullScreen = async (docElement: CompatibleHTMLElemen
 
 再来看下`launchImmersiveFullScreen`方法的返回类型问题。
 
-```
+```ts
 return await fullscreenLaunch.then(() => !!document.fullscreenElement);
 ```
 
 该方法返回了一个`Promise`对象，它的类型是一个泛型，我们需要传入具体的类型：
 
-```
+```ts
 export const launchImmersiveFullScreen = async (docElement: CompatibleHTMLElement): Promise<boolean> => {
   ...
   return await fullscreenLaunch.then(() => !!document.fullscreenElement);
@@ -504,7 +504,7 @@ export const launchImmersiveFullScreen = async (docElement: CompatibleHTMLElemen
 
 这个问题是由于嵌套的作用域中定义了相同的变量名，比如Tree组件的`use-checked.ts`文件中：
 
-```
+```ts
 export default function useChecked(...) {
   const onNodeClick = (item: TreeItem) => {
     // 这里定义了 id 变量
@@ -519,7 +519,7 @@ export default function useChecked(...) {
 
 修改方式就是将其中一个 id 的名字改了，比如把里面的 id 改成 itemId：
 
-```
+```ts
 const currentSelectedItem = flatData.filter(({ id: itemId }) => currentSelected[itemId] && currentSelected[itemId] !== 'none');
 ```
 

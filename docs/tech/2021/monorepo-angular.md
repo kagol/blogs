@@ -1,6 +1,6 @@
 # Monorepo 初体验：将现有的 NG CLI 工程改造成 Monorepo 方式
 
-![image](https://user-images.githubusercontent.com/9566362/201514698-38e1c5b7-71c1-4e1f-bb7c-bef102f172f3.png)
+![](/assets/monorepo-angular-1.png)
 
 ## 前言
 
@@ -60,7 +60,7 @@ npm start
 
 `http://localhost:4200/`
 
-![初始工程.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1a6089df77834691b0aff1843c4b7785~tplv-k3u1fbpfcp-watermark.image)
+![](/assets/monorepo-angular-2.png)
 
 ## 升级成 Monorepo
 
@@ -122,7 +122,7 @@ UPDATE tslint.json (3491 bytes)
 > 看起来和之前没有任何的不同，不过实质已发生巨大的变化。就像变成白袍巫师的甘道夫，穿上灰袍，看着还是以前的“灰袍巫师甘道夫”，不过早已经历了蜕变。
 
 
-![图片.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/18dc5a6ecde04cb58b5d1bae7db79357~tplv-k3u1fbpfcp-watermark.image)
+![](/assets/monorepo-angular-3.png)
 
 ## 增加一个 Angular 项目
 
@@ -149,7 +149,7 @@ npx nx g @nrwl/angular:app projectman-portal
 npx nx serve projectman-portal --port 4100
 ```
 
-![图片.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0b4b46dcd28a4b7c9580c6eb44691a0a~tplv-k3u1fbpfcp-watermark.image)
+![](/assets/monorepo-angular-4.png)
 
 my-portal和projectman-portal启动时，会使用不同的端口号，本地开发互不影响。
 
@@ -235,10 +235,10 @@ apps/projectman-portal/src/app/app.component.html
 由于有热加载，保存后马上就能实时看到页面效果
 
 
-![图片.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a2af27e7e2bc43129ba9edc9285a84e0~tplv-k3u1fbpfcp-watermark.image)
+![](/assets/monorepo-angular-5.png)
 
 
-![图片.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/97a340b1617f4d96b2460dc46290d2d5~tplv-k3u1fbpfcp-watermark.image)
+![](/assets/monorepo-angular-6.png)
 
 ### 配置tsconfig
 
@@ -314,7 +314,7 @@ TS17004: Cannot use JSX unless the '--jsx' flag is provided.
 
 可以看到我们的React项目也能正常启动：
 
-![图片.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/481720b5df074220adcce4ff9a431c35~tplv-k3u1fbpfcp-watermark.image)
+![](/assets/monorepo-angular-7.png)
 
 按照同样的步骤，我们可以扩展出很多子项目，它们之间共同同样的工作流，同样的公共代码，非常方便和高效，赶紧试试吧！
 

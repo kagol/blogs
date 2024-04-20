@@ -1,6 +1,6 @@
 # 利用好 git bisect 这把利器，帮助你快速定位疑难 bug
 
-![image](https://user-images.githubusercontent.com/9566362/201500735-2f9a62ff-38af-49b4-9d88-67f1c0e12494.png)
+![](/assets/git-bisect-1.png)
 
 使用git bisect二分法定位问题的基本步骤：
 1. git bisect start [最近的出错的commitid] [较远的正确的commitid]
@@ -141,21 +141,21 @@ c0c4cc1a is the first bad commit
 
 这里必须表扬下我们DevUI的田主（Contributor）们，他们都养成了小颗粒提交的习惯，这次导致bug的提交`c0c4cc1a`，只提交了4个文件，涉及70多行代码。
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/20e682407cfe4cafb6a5360f4c36537c~tplv-k3u1fbpfcp-watermark.image?)
+![](/assets/git-bisect-2.png)
 
 我们在其中搜索下`document`关键字，发现了两处，都在`drawer-service.ts`整个文件中：
 
 一处是12行的：
-```
+```ts
 static $body: HTMLElement | null = document.body
 ```
 
 另一处是17行的：
-```
+```ts
 this.$div = document.createElement('div')
 ```
 
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b7e5478cc5e84a10989052ee8c2d3f76~tplv-k3u1fbpfcp-watermark.image?)
+![](/assets/git-bisect-3.png)
 
 最终发现罪魁祸首就是12行的代码！
 
@@ -164,7 +164,7 @@ this.$div = document.createElement('div')
 此处@lnzhangsong我们的田主，有空麻烦修下这个bug。
 
 
-![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4fe8aa9b5b1a4a3a970a745d259f9953~tplv-k3u1fbpfcp-watermark.image?)
+![](/assets/git-bisect-4.png)
 
 
 <EditInfo time="2021年12月27日 23:49" title="阅读 4606 ·  点赞 84 ·  评论 24 ·  收藏 66" />

@@ -1,6 +1,6 @@
 # 用积木理论设计的 Carousel 组件都有哪些有趣的玩法？
 
-![image](https://user-images.githubusercontent.com/9566362/201501010-d855cf31-7e29-46c8-9c00-9c0ca86c9478.png)
+![](/assets/carousel-component-0.png)
 
 之前给大家介绍了[DevUI](https://devui.design/)组件设计的基本思想，并以`Carousel`走马灯组件为例，给大家分享如何将积木理论的思想运用到组件设计上。
 
@@ -70,11 +70,11 @@
 
 然后直接用浏览器打开就可以看到效果啦！
 
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d74a1557c0624ac194da5d71c335187d~tplv-k3u1fbpfcp-watermark.image?)
+![](/assets/carousel-component-1.png)
 
 `vue-devui-carousel`组件的基本用法是直接在`DCarousel`标签里面添加需要轮播的元素即可：
 
-```
+```html
 <DCarousel>
   <div class="carousel-item">page 1</div>
   <div class="carousel-item">page 2</div>
@@ -84,14 +84,14 @@
 
 也可以添加图片，一个[掘金活动](https://juejin.cn/events)页面的效果就出来了：
 
-```
+```html
 <DCarousel style="width: 470px; height: 280px;">
   <img height="280" src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0a4dda7abf534e098f04fe0e968b1e0c~tplv-k3u1fbpfcp-zoom-mark-crop-v2:0:0:940:560.awebp?" />
   <img height="280" src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5e5b0b404fcb44ac9fb1359334186b46~tplv-k3u1fbpfcp-zoom-mark-crop-v2:0:0:940:560.awebp?" />
 </DCarousel>
 ```
 
-![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/79d82f68630f4db4a99400d71918ea59~tplv-k3u1fbpfcp-watermark.image?)
+![](/assets/carousel-component-2.png)
 
 ### 1.2 在vite工程中使用
 
@@ -99,17 +99,17 @@
 
 先创建一个vite工程：
 
-```
+```shell
 yarn create vite vite-demo --template vue-ts
 ```
 
 然后安装`Carousel`：
-```
+```shell
 yarn add vue-devui-carousel
 ```
 
 在`main.ts`中引入`Carousel`：
-```
+```ts
 import Carousel from 'vue-devui-carousel'
 import 'vue-devui-carousel/dist/style.css'
 
@@ -120,7 +120,7 @@ createApp(App)
 
 在`App.vue`中使用：
 
-```
+```html
 <DCarousel>
   <div class="carousel-item">page 1</div>
   <div class="carousel-item">page 2</div>
@@ -130,7 +130,7 @@ createApp(App)
 
 效果和直接在html中使用是一样
 
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d74a1557c0624ac194da5d71c335187d~tplv-k3u1fbpfcp-watermark.image?)
+![](/assets/carousel-component-3.png)
 
 ## 2 Carousel组成部分概览
 
@@ -393,15 +393,15 @@ a {
 </style>
 ```
 
-![2022-01-22 22.53.52.gif](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cd3c9ab1b38d46ce888d617e1c67ea77~tplv-k3u1fbpfcp-watermark.image?)
+![](/assets/carousel-component-4.gif)
 
 QQ音乐官网效果：
 
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/410e8fb0b1764f29be73eaec780fd5e4~tplv-k3u1fbpfcp-watermark.image?)
+![](/assets/carousel-component-5.png)
 
 `default`默认插槽中如果放上图书信息，就能很方便地实现豆瓣图书资讯的轮播效果。
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dab78239ccb64480af53d72bb7d74abc~tplv-k3u1fbpfcp-watermark.image?)
+![](/assets/carousel-component-6.png)
 
 ## 4 DCarouselIndicator：指示器子组件
 
@@ -418,11 +418,11 @@ QQ音乐官网效果：
 
 `DCarouselIndicator`组件可以单独使用，不依赖`DCarousel`，如果什么都不配置，默认效果是一个高亮的点。
 
-```
+```html
 <DCarouselIndicator></DCarouselIndicator>
 ```
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dc2c3c446f7843b18f530531a9afe9b9~tplv-k3u1fbpfcp-watermark.image?)
+![](/assets/carousel-component-7.png)
 
 这似乎没什么用。
 
@@ -430,11 +430,11 @@ QQ音乐官网效果：
 
 可以使用`count`属性渲染多个点。
 
-```
+```html
 <DCarouselIndicator :count="3"></DCarouselIndicator>
 ```
 
-![2022-01-22 23.21.47.gif](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/09e29eac0ad045c0a63a0b3d9df898f9~tplv-k3u1fbpfcp-watermark.image?)
+![](/assets/carousel-component-8.gif)
 
 看着还是没什么用。
 
@@ -460,11 +460,11 @@ const pageIndex = ref(2)
 </template>
 ```
 
-![2022-01-22 23.31.54.gif](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/80190aed3af14c32a46b2a831255b68c~tplv-k3u1fbpfcp-watermark.image?)
+![](/assets/carousel-component-9.gif)
 
 单独使用`DCarouselIndicator`组件似乎没有什么用，其实不是的，仅仅是单独使用`DCarouselIndicator`有时也能实现非常炫酷和实用的效果，比如实现一个手风琴式折叠卡片。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6e97ea67fa4d4edaaafcd7822fad8f94~tplv-k3u1fbpfcp-watermark.awebp?)
+![](/assets/carousel-component-10.gif)
 
 #### 4.2.4 玩法4: 使用`default`默认插槽实现手风琴式折叠卡片效果
 
@@ -478,7 +478,7 @@ const pageIndex = ref(2)
 
 而且用`DCarouselIndicator`实现不需要写任何JS代码：
 
-```
+```vue
 <script setup lang="ts">
 import { DCarouselIndicator } from 'vue-devui-carousel'
 </script>
@@ -569,7 +569,7 @@ import { DCarouselIndicator } from 'vue-devui-carousel'
 
 效果如下：
 
-![2022-01-22 23.45.41.gif](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/97704b15107048669dea77d3ec5f5c6d~tplv-k3u1fbpfcp-watermark.image?)
+![](/assets/carousel-component-11.gif)
 
 ## 综合案例：实现B站首页轮播图效果
 
@@ -577,7 +577,7 @@ import { DCarouselIndicator } from 'vue-devui-carousel'
 
 `DCarousel`默认的指示器是在底部居中位置的，如果我想把它放在左边，类似B站首页轮播图的效果。
 
-![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/69374c66468844e7a05eeba88b93749e~tplv-k3u1fbpfcp-watermark.image?)
+![](/assets/carousel-component-12.png)
 
 ```vue
 <script setup lang="ts">
@@ -763,7 +763,7 @@ img {
 
 效果如下：
 
-![2022-01-23 00.12.32.gif](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/532b4b606278494caa5cd5d474e43c4a~tplv-k3u1fbpfcp-watermark.image?)
+![](/assets/carousel-component-13.gif)
 
 看着是不是和B站的效果一样啦！
 
@@ -773,7 +773,7 @@ img {
 
 首先引入了`DCarousel`、`DCarouselIndicator`。
 
-```
+```vue
 <script setup lang="ts">
 import { DCarousel, DCarouselIndicator } from 'vue-devui-carousel'
 </script>
@@ -781,7 +781,7 @@ import { DCarousel, DCarouselIndicator } from 'vue-devui-carousel'
 
 然后自定义了`DCarousel`的3个插槽部分的HTML，在`indicator`插槽区域使用了`DCarouselIndicator`组件，我们发现`indicator`插槽导出了`page`参数，这样`DCarouselIndicator`可以不依赖外部的`usePage`，为了使`DCarouselIndicator`能够居左，我们只需要给它加一行css样式`style="justify-content: flex-start;"`即可，非常方便，也不需要增加`indicator-position`之类的api。
 
-```
+```html
 <DCarousel>
   <!-- 轮播内容区域 -->
   <div class="carousel-bilibili">xxx</div>

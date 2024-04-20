@@ -141,7 +141,7 @@ $ npm test
 
 效果图：
 
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e9bb12522aab4a99a967926d6c77129f~tplv-k3u1fbpfcp-watermark.image?)
+![](/assets/unit-testing-guide-for-vue-components-1.png)
 
 我们可以按照以下步骤编写单元测试用例：
 
@@ -168,7 +168,7 @@ $ npm test
 - 测试 type/format 三个属性之间的组合：设置 `type="week"` 和 `format="yyyy 年第 WW 周"`，日期选择面板应该变成选择周，选择5月7日到13日这周之后，输入框中显示的内容应该是 `2023 年第19周`
 - ...
 
-```
+```html
 <tiny-date-picker
   v-model="value"
   type="week"
@@ -176,7 +176,7 @@ $ npm test
 ></tiny-date-picker>
 ```
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2b2e17c19df74c88b663834387b8a5c4~tplv-k3u1fbpfcp-watermark.image?)
+![](/assets/unit-testing-guide-for-vue-components-2.png)
 
 ## 3 怎么测
 
@@ -206,7 +206,7 @@ describe('测试 HelloWorld 组件', () => {
 
 每个单元测试里面测试 Vue 组件的表现是否正常，需要借助 `@vue/test-utils` 的 mount 方法，模拟组件的挂载。
 
-```
+```ts
 import { mount } from '@vue/test-utils'
 import HelloWorld from './HelloWorld.vue'
 
@@ -219,7 +219,7 @@ const wrapper = mount(HelloWorld, {
 
 用 mount 函数包裹组件，得到的是一个挂载好的组件对象，该对象包含了一系列实用的方法可以用于组件的测试。
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0481e075139643cca71f711a212f2f28~tplv-k3u1fbpfcp-watermark.image?)
+![](/assets/unit-testing-guide-for-vue-components-3.png)
 
 比较常用的有：
 

@@ -1,12 +1,12 @@
 # 前端有了这两样神器，再也不用追着后台要接口啦
 
-![image](https://user-images.githubusercontent.com/9566362/201150454-a97cc0cb-f685-4eaf-a9bc-a2363d3a0ac4.png)
+![](/assets/front-end-mock-data-1.png)
 
 ## 前言
 
 之前发过一篇沸点，聊到前端为了提升业务交付效率，有必要去除对上游的依赖，这次想给大家分享下我自己在去后台依赖方面的一些实践，欢迎大家一起讨论！
 
-![image](https://user-images.githubusercontent.com/9566362/201150853-3aa5f9a9-c081-41d1-a587-eedfbf0b1339.png)
+![](/assets/front-end-mock-data-2.png)
 
 
 沸点传送门：[juejin.im/pin/6862313…](https://juejin.im/pin/6862313304141135885)
@@ -157,10 +157,10 @@ npm run mock
 ```
 
 启动之后控制台显示：
-![image](https://user-images.githubusercontent.com/9566362/201150960-285e0d32-305e-41b3-977d-eba77896cd8c.png)
+![](/assets/front-end-mock-data-3.png)
 
 在浏览器地址栏输入：[http://localhost:9090/cards](https://link.juejin.cn/?target=http%3A%2F%2Flocalhost%3A9090%2Fcards)，即可查看该接口的返回数据
-![image](https://user-images.githubusercontent.com/9566362/201150990-8fbe5b3c-7de8-4752-8988-eefa618f53f7.png)
+![](/assets/front-end-mock-data-4.png)
 
 ## 如何构造测试数据？
 
@@ -279,11 +279,11 @@ npm run mock
 命令启动Mock服务，在浏览器中输入
 [http://localhost:9090/cards](https://link.juejin.cn/?target=http%3A%2F%2Flocalhost%3A9090%2Fcards)
 访问/cards接口：
-![image](https://user-images.githubusercontent.com/9566362/201151077-e283a291-b9ed-46f8-b689-bef8526c905e.png)
+![](/assets/front-end-mock-data-5.png)
 
 可以看到Mock.js为我们生成了非常多随机测试数据，之前构造这些数据可是要费很大的工夫。
 并且为了构造这大量的测试数据，我们只是在db.js中增加了不到50行代码，不用在担心源文件体积太大的问题。
-![image](https://user-images.githubusercontent.com/9566362/201151108-c54c6262-4c54-46bc-a381-0682937b3b18.png)
+![](/assets/front-end-mock-data-6.png)
 
 是不是非常便捷？
 
@@ -322,7 +322,7 @@ ngOnInit() {
 }
 ```
 获取到的接口数据如下：
-![image](https://user-images.githubusercontent.com/9566362/201151149-651eada6-55f7-4d61-9e3f-6020a2198ee3.png)
+![](/assets/front-end-mock-data-7.png)
 
 使用代理无缝切换后台接口
 
@@ -455,10 +455,10 @@ this.http.get('/v1/cards').subscribe((cards: CardInterface) => {
 - 二是数据文档化和字段自动提醒和补齐。
 
 类型校验和自动提示：
-![image](https://user-images.githubusercontent.com/9566362/201151284-bee0d59b-3232-440f-96d7-5190102e6345.png)
+![](/assets/front-end-mock-data-8.png)
 
 数据文档化和字段自动提醒和补齐：
-![image](https://user-images.githubusercontent.com/9566362/201151304-acc7306c-4875-44f5-9055-5f5f8e2bef1c.png)
+![](/assets/front-end-mock-data-9.png)
 
 ## 小结
 

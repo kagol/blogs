@@ -6,7 +6,7 @@ Vue 是一款易学易用，性能出色，适用场景丰富的渐进式 JavaSc
 
 ## Element Plus
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f4898813e9aa47918c1ced19a91349db~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=300&h=74&s=6910&e=png&a=1&b=409fff)
+![](/assets/vue3-component-libraries-1.png)
 
 Element UI 是国内使用最广泛的 Vue2 组件库之一，而 Element Plus 是 Element UI 的升级版，基于 Vue3 和 TypeScript，提供了 70 多个易于使用的组件。
 
@@ -29,7 +29,7 @@ Element Plus 于 2020年9月发布第一个 Beta 版本，2022年2月发布第�
 
 ## Vuetify
 
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b29dec2349274556959e84edef182b76~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1353&h=319&s=33275&e=png&a=1&b=000000)
+![](/assets/vue3-component-libraries-2.png)
 
 Vuetify 基于 Material Design 设计规范，提供 80 多个组件，拥有动态主题、全局默认值、应用框架等丰富而强大的特性，它以提供给开发者丰富的工具，给用户良好而丰富的使用体验为最终目标。
 
@@ -50,7 +50,7 @@ Vuetify 是一个国外的老牌 Vue 组件库，2016年7月发布第一个版�
 
 ## Ant Design Vue
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f8e9463e084346e2bb9d970b3b3de664~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=128&h=128&s=9951&e=png&a=1&b=1a9cff)
+![](/assets/vue3-component-libraries-3.png)
 
 Ant Design 是全球历史最悠久和最受欢迎的组件库之一，官方提供 React 版本，Ant Design Vue 是它的 Vue 版本，由社区开发和维护，遵循 Ant Design 设计规范，提供 67 个组件。
 
@@ -71,7 +71,7 @@ Ant Design Vue 于 2017年9月创建代码仓库，2018年8月发布第一个版
 
 ## Quasar
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/344e1115376a4deebe9fe1a3cc6cf00a~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=474&h=140&s=10723&e=png&b=ffffff)
+![](/assets/vue3-component-libraries-4.png)
 
 Quasar 不仅仅是一个组件库，而是一个基于 Vue 的开源框架，可以帮助 Web 开发人员快速创建多种风格的响应式 ++ 网站/应用程序：
 
@@ -101,7 +101,7 @@ Quasar 于 2015年10月创建代码仓库，2019年7月发布第一个稳定版�
 
 ## Naive UI
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0b5f26c9d3b24fe1b699f22dd8689a47~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=123&h=150&s=6427&e=png&a=1&b=5fbc21)
+![](/assets/vue3-component-libraries-5.png)
 
 Naive UI 由图森未来公司创建，只支持 Vue3，不支持 Vue2，一个有点意思的 Vue3 组件库，这体现在 Naive UI 官网文档的每一处文案中，目前提供 80 个组件。
 
@@ -122,7 +122,7 @@ Naive UI 于 2019年5月创建代码仓库，2021年6月发布第一个版本 v2
 
 ## Arco Design Vue
 
-![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/112a6a727c0e49cbbe6817242b4d60bd~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=602&h=192&s=10366&e=png&b=ffffff)
+![](/assets/vue3-component-libraries-6.png)
 
 Arco Design 是由字节跳动 GIP UED 团队和架构前端团队联合推出的企业级设计系统，Arco Design Vue 是基于 Arco Design 的 Vue3 组件库，于2021年10月开源，提供 71 个组件。
 
@@ -143,7 +143,7 @@ Arco Design Vue 于 2021年1月创建代码仓库，并发布第一个版本 v2.
 
 ## TinyVue
 
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fe7caaa8061b40b6bd6f888d46962ba3~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1890&h=380&s=86290&e=png&b=ffffff)
+![](/assets/vue3-component-libraries-7.png)
 
 最后给大家推荐一款今年2月份刚开源的新兴组件库：TinyVue。
 

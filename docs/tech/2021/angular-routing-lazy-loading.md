@@ -1,6 +1,6 @@
 # Angular 路由：懒加载、守卫、动态参数
 
-![image](https://user-images.githubusercontent.com/9566362/201514708-f3f8124d-0967-42b6-b100-6ecb6dcf7d94.png)
+![](/assets/angular-routing-lazy-loading-1.png)
 
 ## 引言
 
@@ -35,7 +35,7 @@ const routes: Routes = [
 
 效果如下：
 
-![路由懒加载.gif](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/60318b1dcc7345d385103108a1608ba4~tplv-k3u1fbpfcp-watermark.image)
+![](/assets/angular-routing-lazy-loading-2.gif)
 
 其中的`components-list-list-module-ngfactory.js`文件，只有当访问`/list`路由时才会加载。
 
@@ -121,7 +121,7 @@ export class DetailService {
 
 效果如下：
 
-![路由守卫.gif](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c4a75592577f456783988c5db717feb3~tplv-k3u1fbpfcp-watermark.image)
+![](/assets/angular-routing-lazy-loading-3.gif)
 
 由于我们对`/detail`路由增加了守卫，不管是从别的路由切换到`/detail`路由，还是直接访问`/detail`路由，都无法进入该页面。
 

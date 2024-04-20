@@ -7,7 +7,7 @@
 
 　　分两步走：
 
-![image](https://user-images.githubusercontent.com/9566362/227754465-c25158bf-d461-49b9-b43f-0ee032bb0a26.png)
+![](/assets/mongodb-to-mysql-1.png)
 
 
 　　PS：昨天用windows自带的画图工具画的那个图有点丑，今天一个设计师朋友用sketch给我画了个好看点的图，附上。（2016.10.26更新）

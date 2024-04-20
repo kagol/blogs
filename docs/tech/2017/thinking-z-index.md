@@ -6,13 +6,13 @@
 
 在一个 fixed-data-table(一个 React 组件)制作的表格中，需要给表头的字段提示的特效，所以做了一个提示层，但是这个提示层被固定的表格列遮住了，并且无论设置该层的 z-index 为多大都不能让其在固定列之上，效果如下：
 
-![image](https://user-images.githubusercontent.com/9566362/227754486-a3676964-7f88-4526-879e-19f58f05169c.png)
+![](/assets/thinking-z-index-1.png)
 
 ## 2 原因分析
 
 通过对页面的 html 元素层级进行分析，把有可能影响层级的部分抽出来：
 
-![image](https://user-images.githubusercontent.com/9566362/227754492-50bb43f9-be40-4799-b434-d7b6d6424499.png)
+![](/assets/thinking-z-index-2.png)
 
 主要有这四部分会影响到元素的层级（关于设置了哪些属性会影响层级请看后面的附录），下面逐一分析：
 
@@ -77,7 +77,7 @@ HTML 结构大概这样：
 
 最终的效果是这样的：
 
-![image](https://user-images.githubusercontent.com/9566362/227754506-a58c7766-8415-48b4-a7f7-5015a93ac6d2.png)
+![](/assets/thinking-z-index-3.png)
 
 ## 6 经验总结
 
@@ -119,7 +119,7 @@ HTML 结构大概这样：
 
 ## 附录：会改变层叠上下文的情况
 
-![image](https://user-images.githubusercontent.com/9566362/227754520-47716caa-d5dc-4199-b81c-f8a9b7e5b1a9.png)
+![](/assets/thinking-z-index-4.png)
 
 翻译过来就是：
 

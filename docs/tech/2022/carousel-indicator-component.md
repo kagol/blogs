@@ -8,7 +8,7 @@
 
 > 为什么CarouselIndicator组件不直接用Carousel组件的pageIndex，而是自己定义一个v-model双向绑定？
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f8ad6c205ca349338a9ab7326ce97aff~tplv-k3u1fbpfcp-watermark.image?)
+![](/assets/carousel-indicator-component-1.png)
 
 这个问题我觉得问得非常好！
 
@@ -36,7 +36,7 @@
 
 还是在`App.vue`文件中
 
-```
+```vue
 // 引入DCarouselIndicator组件和usePage
 <script setup lang="ts">
 import { DCarouselIndicator, usePage } from './components/carousel'
@@ -128,7 +128,7 @@ const { pageIndex, setPageIndex } = usePage(1)
 
 最终效果如下：
 
-![2022-01-11 22.35.37.gif](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6e97ea67fa4d4edaaafcd7822fad8f94~tplv-k3u1fbpfcp-watermark.image?)
+![](/assets/carousel-indicator-component-2.gif)
 
 是不是非常简单，几乎不用写什么逻辑代码，就实现了手风琴式折叠卡片的效果，希望[贪财庸俗之人](https://juejin.cn/user/641770523472567)同学能理解为什么`CarouselIndicator`要和`Carousel`解耦。
 
@@ -144,7 +144,7 @@ const { pageIndex, setPageIndex } = usePage(1)
 
 目前的做法在写法上不够简洁，引入了`usePage`，其实这部分逻辑可以放在`CarouselIndicator`组件里面，使用起来大致是这样：
 
-```vue
+```html
 <DCarouselIndicator>
   <div class="panel">
     <h3>Explore The World</h3>

@@ -1,6 +1,6 @@
 # 点线面 Vue3：把模板语法这条线串起来！
 
-![image](https://user-images.githubusercontent.com/9566362/201513868-e6935caa-a697-42ff-ae89-88f4c4cfcfff.png)
+![](/assets/vue3-template-syntax-1.png)
 
 我把一个初学者学习新技术分成3个大阶段8个小阶段，分别是：
 
@@ -60,7 +60,7 @@
 
 先看基础部分的文档：
 
-![基础.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/24b87ac68f994ee4b9836213a1ba4866~tplv-k3u1fbpfcp-watermark.image)
+![](/assets/vue3-template-syntax-2.png)
 
 大部分都是在讲`template`部分（红框），也讲了一些`script`的内容（蓝框）。
 
@@ -83,7 +83,7 @@
 
 模板语法的文档其实就讲了两个东西：`插值`和`指令`。
 
-![模板语法.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/46e1a12e04b54939a678d49576d93dbc~tplv-k3u1fbpfcp-watermark.image)
+![](/assets/vue3-template-syntax-3.png)
 
 插值我们已经有一定的了解，并且知道了：
 
@@ -132,7 +132,7 @@ rawHtml: '<span style="color: red">This should be red.</span>'
 
 同样一个HTML字符串文本，通过文本插值，会直接把这个HTML字符串文本显示出来；而HTML插值则会将HTML字符串渲染出来（这里是一个红色的文本）。
 
-![HTML插值.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5df288026f4b4bd18e4e4a30c338de6b~tplv-k3u1fbpfcp-watermark.image)
+![](/assets/vue3-template-syntax-4.png)
 
 这里借助了一个Vue指令：`v-html`。
 
@@ -202,7 +202,7 @@ dynamicId: 'name1'
 
 > 这样我们就把插值的线连起来了。
 
-![插值线.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/93cb27e5f51b41d6943a5e6e3e9d2a4a~tplv-k3u1fbpfcp-watermark.image)
+![](/assets/vue3-template-syntax-5.png)
 
 让我们回顾一下：
 - 插值就是将组件实例的变量绑定到dom中
@@ -284,7 +284,7 @@ dynamicId: 'name1'
 
 `v-on`指令除了可以带参数之外，还可以带修饰符（比如带`.prevent`修饰符）。
 
-![举个例子1.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/568b4ee025b44cb8909126858b2874e3~tplv-k3u1fbpfcp-watermark.image)
+![](/assets/vue3-template-syntax-6.png)
 
 ```html
 <a v-on:click.prevent="confirm" href="https://devui.design/">带prevent修饰符的超链接</a>
@@ -322,7 +322,7 @@ dynamicId: 'name1'
 
 > 这样我们把指令这条线也基本串起来了。
 
-![指令线.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/49a3ca1f9fe44db7b76bf18d098bc094~tplv-k3u1fbpfcp-watermark.image)
+![](/assets/vue3-template-syntax-7.png)
 
 其实到这里，模板语法线基本上就已经串起来了，不过还漏了点内容：
 1. 指令是Vue里面非常关键的概念，内容也非常多，Vue3文档的基础部分其实大部分都是在讲Vue的一些内置指令，因此指令线非常长，我们目前串起来的指令线是不完整的，后续还会继续延伸`指令线`
@@ -343,7 +343,7 @@ dynamicId: 'name1'
 
 前面我们在介绍`动态参数指令`和`带修饰符的指令`中又多次接触到`v-on`事件绑定，现在我们知道它属于`指令`这条线的一部分，而`指令线`又属于`模板语法`这条长线的一部分，这样知识点就串起来。
 
-![模板语法线基本.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/eb2291ddf97c4446a9a2889461dc8876~tplv-k3u1fbpfcp-watermark.image)
+![](/assets/vue3-template-syntax-8.png)
 
 如果我们学习的时候每次只记得一些点，没有串成线，就很难进行知识的联想，而且零散的知识点也容易忘记。
 
@@ -468,7 +468,7 @@ setup() {
 }
 ```
 
-![点击事件.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/468f6a9d39324c8ebe15f29ae4548f73~tplv-k3u1fbpfcp-watermark.image)
+![](/assets/vue3-template-syntax-9.png)
 
 从外到内一共有三个元素、三个点击点：
 - 最外层的容器元素（Container 红色圆圈）
@@ -559,7 +559,7 @@ containerClick
 
 加上事件处理这条线，指令这条长线就变得更加完整了。
 
-![指令长线.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/59c156889d514f42b46bc7c7aa1f9a71~tplv-k3u1fbpfcp-watermark.image)
+![](/assets/vue3-template-syntax-10.png)
 
 ## 5 模板引用
 
@@ -579,7 +579,7 @@ containerClick
 
 HTML元素引用获取到的是DOM元素。
 
-![举个例子2.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/08b9040847194941ab6942442fd12a43~tplv-k3u1fbpfcp-watermark.image)
+![](/assets/vue3-template-syntax-11.png)
 
 我们给img标签增加一个ref属性，绑定img标签的引用imgRef。
 
@@ -611,7 +611,7 @@ setup() {
 
 还是举一个🌰
 
-![举栗子3.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/da03ef8d578d439798532e9fe6d042c0~tplv-k3u1fbpfcp-watermark.image)
+![](/assets/vue3-template-syntax-12.png)
 
 ```html
 <HelloWorld ref="helloWorldRef" msg="Hello everyone! I'm learning Vue 3 + TypeScript + Vite" />
@@ -665,7 +665,7 @@ setup: () => {
 
 最后用这条模板语法的线，作为本文的小结吧。
 
-![模板语法线详细.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/055c83653db64a51bab70d019d1b05ef~tplv-k3u1fbpfcp-watermark.image)
+![](/assets/vue3-template-syntax-13.png)
 
 参考：
 
