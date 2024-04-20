@@ -5,7 +5,7 @@
     #bd34fe 30%,
     #41d1ff
   );
-  --vp-sidebar-width: 300px;
+  --vp-sidebar-width: 320px;
 }
 
 @media (min-width: 960px) {
