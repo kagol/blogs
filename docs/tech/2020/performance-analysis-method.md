@@ -22,7 +22,7 @@
 
 话不多说，喝口水直接开撸！
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/85b70bab2d344a27b525f24f47b84b11~tplv-k3u1fbpfcp-watermark.image)
+![](/assets/performance-analysis-method-1.png)
 
 ## Performance 面板简介
 
@@ -36,19 +36,19 @@
 
 这时我们会看到一个简单的指引：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/df4ae1be8e02485798f49350f7e57399~tplv-k3u1fbpfcp-watermark.image)
+![](/assets/performance-analysis-method-2.png)
 
 指引里面有两个按钮，上面的按钮是手动录制，下面的是自动录制，我们点击傻瓜式的自动录制，自动录制会自动刷新页面，在页面加载完成之后，生成该页面的性能分析报告，无需人工干预，非常方便。
 
 等个几秒钟报告就生成好了，一眼看去，花花绿绿的，不知道从何看起？
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/df59c1504dff4751a0e6e7898022f4c4~tplv-k3u1fbpfcp-watermark.image)
+![](/assets/performance-analysis-method-3.png)
 
 ### 性能报告的组成
 
 我们对生成的性能分析报告做一个简单的面板分类，看起来就很清晰了。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/26b68ba524b14e949355a3f57ba7aecb~tplv-k3u1fbpfcp-watermark.image)
+![](/assets/performance-analysis-method-4.png)
 
 #### 工具栏
 
@@ -56,7 +56,7 @@
 
 还有两个隐藏的功能也很有用，一个是模拟慢网速的，另一个是模拟慢CPU的，对移动端应用做性能优化可能会用到。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f847a37efac64d15a6e379f76df43b2b~tplv-k3u1fbpfcp-watermark.image)
+![](/assets/performance-analysis-method-5.png)
 
 #### 概览面板
 
@@ -108,7 +108,7 @@ FPS下面是CPU处理各个任务花费的时间，再往下是网络请求的�
 
 还是举刚才的例子。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9b6969cf9d9f4540bfd55ef8460e1acb~tplv-k3u1fbpfcp-watermark.image)
+![](/assets/performance-analysis-method-6.png)
 
 从饼图可以看出占比最多的是`脚本执行`和`空闲`。
 
@@ -131,7 +131,7 @@ FPS下面是CPU处理各个任务花费的时间，再往下是网络请求的�
 
 还是看下掘金个人主页的瀑布图。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8a36050601ea4e57adfe2910f26cb457~tplv-k3u1fbpfcp-watermark.image)
+![](/assets/performance-analysis-method-7.png)
 
 ### 总结瀑布图的特点
 
@@ -151,18 +151,18 @@ FPS下面是CPU处理各个任务花费的时间，再往下是网络请求的�
 我们按从左到右，从上到下的顺序进行分析，最左边有两个色块，一个灰色色块，一个蓝色色块，我们分别点击这两个色块，在详情面板看下它们的详情信息。
 
 先看灰色色块
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/290be79443c0404ebf4b813c1ef5401d~tplv-k3u1fbpfcp-watermark.image)
+![](/assets/performance-analysis-method-8.png)
 
 我们有注意到这个请求的启动器（Initiator）是一个Chrome插件：[chrome://new-tab-page/omnibox.mojom-lite.js](chrome://new-tab-page/omnibox.mojom-lite.js)
 
 因此我们不关注，接着看蓝色色块
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ad291ed132794851965f3e0b54b89ef5~tplv-k3u1fbpfcp-watermark.image)
+![](/assets/performance-analysis-method-9.png)
 
 前面我们已经介绍了，蓝色色块代表HTML文件，我们从详情的`Mime Type`为`text/html`也可以验证这一点。
 
 我们滚动鼠标滚轮，把这个瀑布图放大，看这个蓝色请求块的细节
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/15437f73032e451bb120ab81c8ffa33e~tplv-k3u1fbpfcp-watermark.image)
+![](/assets/performance-analysis-method-10.png)
 
 #### 请求块的组成
 
@@ -190,7 +190,7 @@ FPS下面是CPU处理各个任务花费的时间，再往下是网络请求的�
 
 HTML文件下载完了之后，就会开始一行一行解析其中的HTML标签，遇到设置了谁、`src`属性的`<script>`标签，就会去下载src指定的JavaScript脚本文件。
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fcb156ff079249a9b173e86d81f993a5~tplv-k3u1fbpfcp-watermark.image)
+![](/assets/performance-analysis-method-11.png)
 
 从瀑布图可以看出，一共并行下载了8个JavaScript文件，它们的域名都是一样的：`sf1-scmcdn2-tos.pstatp.com`
 
@@ -206,15 +206,15 @@ HTTP/2的多路复用可以实现一个TCP连接同时传输多个资源。
 
 我们到Network面板里去看下这些JavaScript的请求详情，果然和我们猜测的一致，这一点必须给掘金点个赞👍
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b46bad97b1cf46388eae69c2c8cb28ee~tplv-k3u1fbpfcp-watermark.image)
+![](/assets/performance-analysis-method-12.png)
 
 发一个某86网站和掘金的对比图，大家感受一下
 
 某86网站：
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6bf78ab7422d4334b013439ee622c40b~tplv-k3u1fbpfcp-watermark.image)
+![](/assets/performance-analysis-method-13.png)
 
 掘金：
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/775b17cfce0e4100a777f3b2e03019c6~tplv-k3u1fbpfcp-watermark.image)
+![](/assets/performance-analysis-method-14.png)
 
 > 虽然前者更像一个瀑布，但是我喜欢后者丝滑般的体验。
 
@@ -237,9 +237,9 @@ HTTP/2的多路复用可以实现一个TCP连接同时传输多个资源。
 
 为了确定这是偶然的，还是必然的，我又录制了两次这个掘金个人主页的性能报告
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b1bfaa13151943e3aebffe2984382496~tplv-k3u1fbpfcp-watermark.image)
+![](/assets/performance-analysis-method-15.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6af7f771beb142ddaf2edeb9766c4ecf~tplv-k3u1fbpfcp-watermark.image)
+![](/assets/performance-analysis-method-15-2.png)
 
 这次和预期的基本一致，8耗时比其他都长，这个JavaScript文件3.9MB，太大了，很可能是性能瓶颈。
 
@@ -264,7 +264,7 @@ HTTP/2的多路复用可以实现一个TCP连接同时传输多个资源。
 
 在看正式的火焰图之前，先来看一个瀑布图和火焰图放在一起的效果
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b6b4db8b54ea46a29e68c37b121813b8~tplv-k3u1fbpfcp-watermark.image)
+![](/assets/performance-analysis-method-16.png)
 
 看完这张瀑布和火焰的对比图，你一定看出了一个现象
 
@@ -299,7 +299,7 @@ But Why?
 
 还是先大概看下掘金个人主页的火焰图
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8628b108e00743b8bd21cd73f90ec79a~tplv-k3u1fbpfcp-watermark.image)
+![](/assets/performance-analysis-method-17.png)
 
 ### 总结火焰图的特点
 
@@ -335,7 +335,7 @@ But Why?
 
 三个长任务1s钟就找到了
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/96b9784630bf40cc8666b482ad3e96c6~tplv-k3u1fbpfcp-watermark.image)
+![](/assets/performance-analysis-method-18.png)
 
 #### 分析长任务
 
@@ -343,7 +343,7 @@ But Why?
 
 我们把最右边最大的那个火焰放大，看看里面到底有些什么秘密。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b57c374140164b0db16ccbc33df04a5d~tplv-k3u1fbpfcp-watermark.image)
+![](/assets/performance-analysis-method-19.png)
 
 放大之后，我们很快就发现这个耗时591ms的长任务，有90%的时间都花费在了一个叫`init`的方法上，这个方法一共执行了6次，其中3/4/6耗时尤其长
 
@@ -359,13 +359,13 @@ But Why?
 
 再看下左边那个第二大的火焰，同样滚动鼠标滚轮把它放大
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/531975d1d5ae4247a2b0a6a77fea01aa~tplv-k3u1fbpfcp-watermark.image)
+![](/assets/performance-analysis-method-20.png)
 
 我们发现其中有一个forEach循环特别耗时，这个循环好像在计算什么东西，一共花了150ms。
 
 这个依然需要看下具体的源码才能找到问题的根因。
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dcce04f337694bbba88f6dc1b1e4ec49~tplv-k3u1fbpfcp-watermark.image)
+![](/assets/performance-analysis-method-21.png)
 
 ### 通过火焰图发现性能瓶颈的案例
 
@@ -382,7 +382,7 @@ But Why?
 
 当时XBoard看板页有一堆长任务，我找了其中的TOP3
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/665fb2258bf9421e8c974da8a2b1fa80~tplv-k3u1fbpfcp-watermark.image)
+![](/assets/performance-analysis-method-22.png)
 
 然后将第一个长任务放大，很快就有了收获，我发现其中有一个叫`drawQrCode`的方法耗时比较长，一共花了192ms。
 
@@ -392,7 +392,7 @@ But Why?
 
 > 首页加载时，不执行drawQrCode方法，当鼠标移到相应按钮上时，才执行。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ab9e680a443b4aae970cbccf6edbb601~tplv-k3u1fbpfcp-watermark.image)
+![](/assets/performance-analysis-method-23.png)
 
 ### 瀑布图和火焰图的关系
 

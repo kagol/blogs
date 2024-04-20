@@ -25,7 +25,7 @@ export function sidebarTech() {
       text: 'Vue',
       collapsed: true,
       items: [
-        { text: '老板：你为什么要选择 Vue？', link: '/tech/2022/why-did-you-choose-vue' },
+        { text: '选择 Vue 的四个理由', link: '/tech/2022/why-did-you-choose-vue' },
         { text: 'TypeScript 基础及在 Vue 中的实践', link: '/tech/2023/typescript-vue' },
         { text: 'Vue3 组件的组成', link: '/tech/2021/getting-started-with-vue' },
         { text: 'Vue3 模板语法', link: '/tech/2021/vue3-template-syntax' },
@@ -34,7 +34,7 @@ export function sidebarTech() {
       ]
     },
     {
-      text: '组件库建设',
+      text: 'UI 组件库',
       collapsed: true,
       items: [
         { text: '前端开发的积木理论', link: '/tech/2019/building-block-theory' },
@@ -98,6 +98,7 @@ export function sidebarOpenSource() {
       collapsed: true,
       items: [
         { text: '推荐7个 Angular 前端组件库', link: '/open-source/2021/angular-component-libraries' },
+        { text: '推荐7个 Vue3 前端组件库', link: '/open-source/2024/vue3-component-libraries' },
         { text: '一个 OpenTiny，Vue2 Vue3 都支持！', link: '/open-source/2023/opentiny-support-vue2-and-vue3' }
       ]
     },
@@ -112,6 +113,7 @@ export function sidebarOpenSource() {
       text: '个人总结',
       collapsed: true,
       items: [
+        { text: '2023 年终：做开源如养花，花开要时间', link: '/open-source/2023/summary-2023' },
         { text: '2022 年终：把时间沉淀到自己的热爱里', link: '/open-source/2022/summary-2022' },
         { text: '2022 年中：种子终会破土而出', link: '/open-source/2022/summary-2022-mid' },
         { text: '2021 年终：建设一个温暖的开源社区', link: '/open-source/2021/summary-2021' },

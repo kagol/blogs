@@ -14,7 +14,7 @@
 
 最近测试提了一个搜索（PS：此处的搜索🔍就是用 DevUI 新推出的 [CategorySearch](https://juejin.cn/post/6956612556710477860) 组件实现的）相关的缺陷单，就涉及到了上述问题。
 
-![1-1.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/91022a7278ce408ba882bdda2a70d62d~tplv-k3u1fbpfcp-watermark.image)
+![](/assets/asynchronous-interface-request-1.png)
 
 这个bug单大致意思是：
 > 搜索的时候，连续快速输入或者删除关键字，搜索结果和搜索关键字不匹配。
@@ -23,7 +23,7 @@
 
 缺陷单的截图还非常贴心地贴了两次请求的信息：
 
-![2.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bd4260a598914a3e924599aaa4688b86~tplv-k3u1fbpfcp-watermark.image)
+![](/assets/asynchronous-interface-request-2.png)
 
 作为一名“有经验的”前端开发，一看就是一个通用的技术问题：
 1. 浏览器从服务器发起的请求都是异步的；
@@ -55,13 +55,13 @@ Koa 使用起来非常方便，只需要：
 
 使用以下命令创建 app.js 启动文件：
 
-```
+```shell
 vi app.js
 ```
 
 在文件中输入以下 3 行代码，即可启动一个 Koa 服务：
 
-```
+```ts
 const Koa = require('koa'); // 引入 Koa
 const app = new Koa(); // 创建 Koa 实例
 app.listen(3000); // 监听 3000 端口
@@ -76,7 +76,7 @@ app.listen(3000); // 监听 3000 端口
 会显示以下页面：
 
 
-![3.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/95abe405d5fd47f199c70b2c8db3c4f3~tplv-k3u1fbpfcp-watermark.image)
+![](/assets/asynchronous-interface-request-3.png)
 
 启动了我们的 Koa Server 之后，访问：
 
@@ -85,7 +85,7 @@ app.listen(3000); // 监听 3000 端口
 会显示：
 
 
-![4.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5cd1ccceda0d43018528453bb15fd5fa~tplv-k3u1fbpfcp-watermark.image)
+![](/assets/asynchronous-interface-request-4.png)
 
 ### get 请求
 
@@ -95,19 +95,19 @@ app.listen(3000); // 监听 3000 端口
 
 由于要增加一个根路由，我们先安装路由依赖
 
-```
+```shell
 npm i koa-router
 ```
 
 然后引入 Koa Router
 
-```
+```ts
 const router = require('koa-router')();
 ```
 
 接着是编写get接口
 
-```
+```ts
 router.get('/', async (ctx, next) => {
   ctx.response.body = '<p>Hello Koa Server!</p>';
 });
@@ -115,7 +115,7 @@ router.get('/', async (ctx, next) => {
 
 最后别忘了使用路由中间件
 
-```
+```ts
 app.use(router.routes());
 ```
 
@@ -131,7 +131,7 @@ app.use(router.routes());
 会显示以下内容：
 
 
-![4-1.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d136ca6d5404485aa59d162aeda33aa5~tplv-k3u1fbpfcp-watermark.image)
+![](/assets/asynchronous-interface-request-5.png)
 
 ### post 请求
 
@@ -139,7 +139,7 @@ app.use(router.routes());
 
 编写 post 接口和 get 接口很类似：
 
-```
+```ts
 router.post('/getList', async (ctx, next) => {
   ctx.response.body = {
     status: 200,
@@ -152,12 +152,12 @@ router.post('/getList', async (ctx, next) => {
 这时我们可以使用 Postman 调用下这个 post 接口，如期返回：
 
 
-![5.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/49e6fb19f5a040adafc016d544b5e3ef~tplv-k3u1fbpfcp-watermark.image)
+![](/assets/asynchronous-interface-request-6.png)
 
 ### 允许跨域
 
 我们尝试在 NG CLI 项目里调用这个 post 接口：
-```
+```ts
 this.http.post('http://localhost:3000/getList', {
   id: 1,
 }).subscribe(result => {
@@ -170,9 +170,7 @@ this.http.post('http://localhost:3000/getList', {
 - 控制台报错
 - Network请求也是红色的
 
-
-
-![6.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6616b351d65140b594f8baa476a89be0~tplv-k3u1fbpfcp-watermark.image)
+![](/assets/asynchronous-interface-request-7.png)
 
 由于本地启动的项目端口号（4200）和 Koa Server 的（3000）不同，浏览器认为这个接口跨域，因此拦截了。
 
@@ -189,17 +187,17 @@ Koa 有一个中间件可以允许跨域：`koa2-cors`
 这个中间件的使用方式，和路由中间件很类似。
 
 先安装依赖：
-```
+```shell
 npm i koa2-cors
 ```
 
 然后引入：
-```
+```ts
 const cors = require('koa2-cors');
 ```
 
 再使用中间件：
-```
+```ts
 app.use(cors());
 ```
 
@@ -210,7 +208,7 @@ app.use(cors());
 就能得到想要的结果啦！
 
 
-![7.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/41af8a8902554f608b234d21d081b348~tplv-k3u1fbpfcp-watermark.image)
+![](/assets/asynchronous-interface-request-8.png)
 
 ### 慢接口
 
@@ -220,7 +218,7 @@ post 接口已经有了，怎么模拟慢接口呢？
 
 在 post 接口之前增加延迟的逻辑：
 
-```
+```ts
   async function delay(time) {
     return new Promise(function(resolve, reject) { 
       setTimeout(function() {
@@ -237,10 +235,7 @@ post 接口已经有了，怎么模拟慢接口呢？
 再次访问 getList 接口，发现前面接口会一直`pending`，5s 多才真正返回结果。
 
 
-![8.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ad9f89986c754b1a81aa9b2549698c3f~tplv-k3u1fbpfcp-watermark.image)
-
-
-![9.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0023a013aa37415eab1a7874c66bc7cc~tplv-k3u1fbpfcp-watermark.image)
+![](/assets/asynchronous-interface-request-9.png)
 
 ## 取消慢接口请求
 
@@ -258,7 +253,7 @@ Angular 的异步事件机制是基于 RxJS 的，取消一个正在执行的 ht
 
 前面已经看到 Angular 使用 HttpClient 服务来发起 http 请求，并调用subscribe 方法来订阅后台的返回结果：
 
-```
+```ts
 this.http.post('http://localhost:3000/getList', {
   id: 1,
 }).subscribe(result => {
@@ -268,7 +263,7 @@ this.http.post('http://localhost:3000/getList', {
 
 要取消 http 请求，我们需要先把这个订阅存到组件一个变量里：
 
-```
+```ts
 private getListSubscription: Subscription;
 
 this.getListSubscription = this.http.post('http://localhost:3000/getList', {
@@ -280,7 +275,7 @@ this.getListSubscription = this.http.post('http://localhost:3000/getList', {
 
 然后在重新发起 http 请求之前，取消上一次请求的订阅即可。
 
-```
+```ts
 this.getListSubscription?.unsubscribe(); // 重新发起 http 请求之前，取消上一次请求的订阅
 
 this.getListSubscription = this.http.post(...);
@@ -298,7 +293,7 @@ this.getListSubscription = this.http.post(...);
 
 使用 fetch 发起一个 post 请求：
 
-```
+```ts
 fetch('http://localhost:3000/getList', {
    method: 'POST',
 　　headers: {
@@ -314,7 +309,7 @@ fetch('http://localhost:3000/getList', {
 
 可以使用 `AbortController` 来实现请求取消：
 
-```
+```ts
 this.controller?.abort(); // 重新发起 http 请求之前，取消上一次请求
 
 const controller = new AbortController(); //  创建 AbortController 实例
@@ -341,19 +336,19 @@ fetch('http://localhost:3000/getList', {
 
 先安装：
 
-```
+```shell
 npm i axios
 ```
 
 再引入：
 
-```
+```ts
 import axios from 'axios';
 ```
 
 发起 post 请求：
 
-```
+```ts
 axios.post('http://localhost:3000/getList', {
   headers: {
     'Content-Type': 'application/json;charset=utf-8'
@@ -369,7 +364,7 @@ axios.post('http://localhost:3000/getList', {
 
 axios 发起的请求可以通过 cancelToken 来取消。
 
-```
+```ts
 this.source?.cancel('The request is canceled!');
 
 this.source = axios.CancelToken.source(); // 初始化 source 对象

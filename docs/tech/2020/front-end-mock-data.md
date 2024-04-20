@@ -23,14 +23,15 @@
 
 以下是JSON Server官方对自己的定位：
 
-Get a full fake REST API with zero coding in less than 30 seconds (seriously)
-无需写代码，在30秒内获得完整的REST API。
+> Get a full fake REST API with zero coding in less than 30 seconds (seriously)<br>
+> 无需写代码，在30秒内获得完整的REST API。
 
 以我现在负责的[DevCloud](https://link.juejin.cn/?target=https%3A%2F%2Fwww.huaweicloud.com%2Fdevcloud%2F)业务——[XBoard看板](https://link.juejin.cn/?target=https%3A%2F%2Fsupport.huaweicloud.com%2Fusermanual-projectman%2Fdevcloud_hlp_00021.html)项目——举栗子，有一个接口是获取某个看板下面的所有卡片信息（只保留关键字段），接口基本协议如下（接口协议提前跟后台协商好）：
 
-```
-GET /v1/[projectid]/[boardid]/cards
 
+`GET /v1/[projectid]/[boardid]/cards`
+
+```json
 {
   "error": null,
   "status": "success",
@@ -103,7 +104,7 @@ GET /v1/[projectid]/[boardid]/cards
 第1步：安装JSON Server
 
 在项目根目录下执行以下命令：
-```
+```shell
 npm i -D json-server
 ```
 
@@ -111,7 +112,7 @@ npm i -D json-server
 
 在项目根目录下新建db.json文件，加上之前已经跟后台定好的接口数据（为避免重复，已省略部分字段）：
 
-```
+```json
 {
   "result": [
     {
@@ -146,12 +147,12 @@ npm i -D json-server
 第3步：编写启动脚本命令
 
 只需要在package.json的scripts中编写Mock服务的启动脚本即可：
-```
+```json
 "mock": "node_modules/.bin/json-server --watch db.json --port 9090"
 ```
 第4步：启动Mock服务
 
-```
+```shell
 npm run mock
 ```
 
@@ -189,8 +190,9 @@ Mock.js可以生成几乎任何你能想到的数据类型，比如数字、字�
 
 为了集成Mock.js，我们需要将之前的db.json改成db.js，并增加routes.json文件，可以将这两个文件放到根目录下的mock文件夹下。
 
-```
-mock/db.js
+`mock/db.js`
+
+```ts
 
 var Mock = require('mockjs');
 
@@ -250,9 +252,11 @@ const API = () => ({
 });
 
 module.exports = API;
+```
 
-mock/routes.json
+`mock/routes.json`
 
+```json
 {
   "/cards": "/cards"
 }
@@ -262,14 +266,14 @@ mock/routes.json
 
 脚本命令也需要做相应的修改
 
-```
+```json
 "mock": "node_modules/.bin/json-server --watch mock/db.js --routes mock/routes.json --port 9090"
 ```
 
 第3步：重启Mock服务
 
 这时我们重新使用：
-```
+```shell
 npm run mock
 ```
 命令启动Mock服务，在浏览器中输入
@@ -289,8 +293,9 @@ npm run mock
 
 假设我们已经用NG CLI创建了一个项目，为了调用Mock接口，我们需要引入Angular的HttpClientModule模块：
 
-```
-src/app/app.module.ts
+`src/app/app.module.ts`
+
+```ts
 
 import { HttpClientModule } from '@angular/common/http';
 
@@ -301,7 +306,7 @@ imports: [
 ```
 直接调用Mock服务接口
 然后注入Angular的HttpClient服务，就可以向Mock服务的/cards接口发起请求：
-```
+```ts
 src/app/app.component.ts
 
 import { HttpClient } from '@angular/common/http';
@@ -327,7 +332,7 @@ ngOnInit() {
 
 实际调用接口应该是以下的方式：
 
-```
+```ts
 this.http.get('/v1/cards').subscribe(cards => {
   console.log('cards:', cards);
 });
@@ -337,8 +342,9 @@ this.http.get('/v1/cards').subscribe(cards => {
 
 我们需要在本地开发时将接口代理到Mock服务，可以使用NG CLI提供代理配置proxyConfig：
 
-```
-angular.json
+`angular.json`
+
+```json
 
 "serve": {
   "builder": "@angular-devkit/build-angular:dev-server",
@@ -352,8 +358,8 @@ angular.json
 ```
 
 代理配置文件：
-```
-proxy.config.js
+`proxy.config.js`
+```ts
 
 const PROXY_CONFIG = {
   '/v1': {
@@ -368,8 +374,8 @@ module.exports = PROXY_CONFIG;
 如果你使用的不是NG CLI，要怎么配置代理呢？
 Vue CLI配置代理
 
-```
-vue.config.js
+`vue.config.js`
+```ts
 
 devServer: {
   proxy: {
@@ -383,8 +389,8 @@ devServer: {
 Webpack配置代理
 Webpack的写法和Vue CLI的差不多
 
-```
-webpack.config.js
+`webpack.config.js`
+```ts
 
 devServer: {
   proxy: {
@@ -398,7 +404,7 @@ devServer: {
 CreateReactApp配置代理
 
 React稍微麻烦一点儿，需要安装http-proxy-middleware中间件。
-```
+```ts
 const proxy = require("http-proxy-middleware");
 
 module.exports = function(app) {
@@ -416,10 +422,10 @@ module.exports = function(app) {
 
 quicktype的定位是：
 
-```
-Generate types and converters from JSON, Schema, and GraphQL.
-从JSON、Schema和GraphQL生成类型和转换器。
-```
+
+> Generate types and converters from JSON, Schema, and GraphQL.<br>
+> 从JSON、Schema和GraphQL生成类型和转换器。
+
 
 刚才我们已经启动了我们的Mock服务，在浏览器地址栏输入[http://localhost:9090/cards](https://link.juejin.cn/?target=http%3A%2F%2Flocalhost%3A9090%2Fcards)，也可以查看/cards接口的返回数据，这时我们可以使用quicktype工具根，据接口地址生成相应的TS类型文件。
 只需要2步即可：
@@ -428,15 +434,15 @@ Generate types and converters from JSON, Schema, and GraphQL.
 - 第2步：生成TS类型文件
 
 第1步：安装quicktype
-```
+```shell
 npm i -g quicktype
 ```
 第2步：生成TS类型文件
-```
+```shell
 quicktype http://localhost:9090/cards -o ./src/app/shared/types/card.interface.ts --runtime-typecheck
 ```
 使用TS类型
-```
+```ts
 import { CardInterface } from './shared/types/card.interface';
 
 this.http.get('/v1/cards').subscribe((cards: CardInterface) => {

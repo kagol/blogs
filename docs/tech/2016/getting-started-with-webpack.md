@@ -10,7 +10,7 @@
 
 ## 1 什么是 Webpack
 
-Webpack是一个前端的模块管理工具(module bundler)，以下是webpack的官网：http://webpack.github.io/，一进入官网可以看到下面这张大图：
+Webpack是一个前端的模块管理工具(module bundler)，以下是webpack的官网：[http://webpack.github.io/](http://webpack.github.io/)，一进入官网可以看到下面这张大图：
 
 ![image](https://user-images.githubusercontent.com/9566362/227753884-97560995-e1a9-48b8-9f25-4fe89785ac24.png)
 

@@ -12,7 +12,7 @@ Angular可以根据路由，动态加载相应的模块代码，这个功能是�
 
 为了加快首页的渲染速度，我们可以设计如下的路由，让首页尽量保持简洁、清爽：
 
-```
+```ts
 const routes: Routes = [
   {
     path: '',
@@ -49,7 +49,7 @@ const routes: Routes = [
 
 ### 增加路由守卫
 
-```
+```ts
 {
   path: 'detail',
   loadChildren: () => import('./components/detail/detail.module').then(m => m.DetailModule),
@@ -62,12 +62,12 @@ const routes: Routes = [
 ### 编写守卫逻辑
 
 使用CLI命令创建路由守卫模块：
-```
+```shell
 ng g guard auth
 ```
 
 auth.guard.ts
-```
+```ts
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -98,12 +98,12 @@ export class AuthGuard implements CanActivate {
 ### 获取权限service
 
 获取权限的service：
-```
+```shell
 ng g s detail
 ```
 
 detail.service.ts
-```
+```ts
 import {Injectable} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
@@ -134,7 +134,7 @@ export class DetailService {
 
 ### 在path中带参
 
-```
+```ts
 {
   path: 'user/:id',
   loadChildren: () => import('./components/user/user.module').then(m => m.UserModule),
@@ -145,13 +145,13 @@ export class DetailService {
 
 html传参
 
-```
+```html
 <a [routerLink]="['/list']" [queryParams]="{id: '1'}">...</a>
 ```
 
 ts传参
 
-```
+```ts
 this.router.navigate(['/list'],{ queryParams: { id: '1' });
 ```
 
@@ -159,7 +159,7 @@ this.router.navigate(['/list'],{ queryParams: { id: '1' });
 
 > 注意：通过data传递的路由参数只能是静态的
 
-```
+```ts
 {
   path: 'detail',
   loadChildren: () => import('./components/detail/detail.module').then(m => m.DetailModule),
@@ -177,7 +177,7 @@ data只能传递静态参数，那我想通过路由传递从后台接口获取�
 
 答案是通过`resolve`配置。
 
-```
+```ts
 {
   path: 'detail',
   loadChildren: () => import('./components/detail/detail.module').then(m => m.DetailModule),
@@ -192,7 +192,7 @@ data只能传递静态参数，那我想通过路由传递从后台接口获取�
 #### 创建Resolver
 
 detail.resolver.ts
-```
+```ts
 import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { DetailService } from './detail.service';
@@ -211,7 +211,7 @@ export class DetailResolver implements Resolve<any> {
 #### 在服务中增加获取详情数据的方法
 
 detail.service.ts
-```
+```ts
 import {Injectable} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
@@ -236,12 +236,12 @@ export class DetailService {
 
 创建组件
 
-```
+```shell
 ng g c detial
 ```
 
 detail.component.ts
-```
+```ts
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
