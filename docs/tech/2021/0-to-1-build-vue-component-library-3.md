@@ -239,15 +239,5 @@ setup(props) {
 
 本文主要讲述如何一步步给 tree 组件增加展开/收起功能，并使用vue3的组合式api对这个功能从setup 中抽离。
 
-## 欢迎参与devui开源项目
-
-我们 `DevUI` 团队有多个开源项目，现在都在招募`contributor`，欢迎大家一起参与开源中来！(感兴趣的小伙伴可以添加`DevUI`小助手的微信：`devui-official`，将你拉到我们的核心开发群)
-
-- Ng DevUI: [https://github.com/DevCloudFE/ng-devui](https://github.com/DevCloudFE/ng-devui)
-- Vue DevUI: [https://gitee.com/devui/vue-devui](https://gitee.com/devui/vue-devui)
-- DevUI Admin [https://github.com/DevCloudFE/ng-devui-admin](https://github.com/DevCloudFE/ng-devui-admin)
-
-`DevUI`官网：[https://devui.design/](https://devui.design/)
-
 <EditInfo time="2021年10月04日 09:55" title="阅读 2775 ·  点赞 25 ·  评论 12 ·  收藏 5" />
 

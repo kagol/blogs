@@ -376,41 +376,6 @@ testEnvironment: 'jest-environment-jsdom',
 5. 编写单元测试的三部曲：`测试套`、`单元测试`、`测试断言`
 6. 分析了搭建单元测试环境中遇到的典型问题及相应的解决方案
 
-## 欢迎一起建设 DevUI 开源项目
-
-我们 `DevUI` 团队有多个开源项目，现在都在招募`contributor`，欢迎大家一起参与开源中来！(感兴趣的小伙伴可以添加`DevUI`小助手的微信：`devui-official`，将你拉到我们的核心开发群)
-
-- Ng DevUI: [https://github.com/DevCloudFE/ng-devui](https://github.com/DevCloudFE/ng-devui)
-- Vue DevUI: [https://gitee.com/devui/vue-devui](https://gitee.com/devui/vue-devui)
-- DevUI Admin [https://github.com/DevCloudFE/ng-devui-admin](https://github.com/DevCloudFE/ng-devui-admin)
-
-`DevUI`官网：[https://devui.design/](https://devui.design/)
-
-也欢迎关注我和村长的【Vue DevUI开源指南】系列直播！
-
-Vue DevUI开源指南系列直播打算分成两条线：
-1. 组件设计和实现
-2. 组件库的工程化
-
-目前【组件设计和实现】已经完成了3期（还未结束）：
-1. [【我要做开源】华为大佬亲授，Vue DevUI开源指南01：提交我的第一次pr](https://www.bilibili.com/video/BV1GU4y1N7eC/)
-1. [【我要做开源】华为大佬亲授，Vue DevUI开源指南02：做一个有模有样的Tree组件](https://www.bilibili.com/video/BV1su411f7a1/)
-1. [【我要做开源】华为大佬亲授，Vue DevUI开源指南03：学会“单测”才会有安全感！完成Tree组件！](https://www.bilibili.com/video/BV1Z64y187dR/)
-
-【组件库工程化】已经完成了2期（正在进行中）：
-1. [【我要做开源】华为大佬亲授，Vue DevUI开源指南04：组件库工程化建设之项目初始化、jsx支持](https://www.bilibili.com/video/BV1xR4y1H7yT/)
-1. [【我要做开源】华为大佬亲授，Vue DevUI开源指南05：开源组件库中的文档建设，vitepress使用过程中的踩坑经历，克服这些困难你将收获多多！](https://www.bilibili.com/video/BV1r44y1x7sk)
-1. [【我要做开源】Vue DevUI开源指南06：手把手带你开发一个脚手架 ](https://juejin.cn/post/7021915468046811144)
-
-已经跟村长老师达成共识![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/744ce3b0c5ca4f5b9cc5285593166d7d~tplv-k3u1fbpfcp-watermark.image?)，只要村长老师的直播间不倒，只要还有小伙伴愿意参与进来，这个系列就会一直做下去！
-
-欢迎大家持续关注、分享出去~我们一起来从0到1做一个vue3开源组件库！
-
-每周五晚上九点，我们在村长的直播间，不见不散！
-
-[村长直播间地址](https://live.bilibili.com/22531545)
-
-
 <EditInfo time="2021年10月27日 00:20" title="阅读 1890 ·  点赞 34 ·  评论 7 ·  收藏 30" />
 
 

@@ -445,15 +445,4 @@ const data = ref([{
 - [Vue DevUI开源指南02：实现一个能渲染多层节点的Tree组件](https://juejin.cn/post/7011535488171376671)
 - [Vue DevUI开源指南01：提交我的第一次pr](https://juejin.cn/post/7009273646884028430)
 
-# 欢迎参与devui开源项目
-
-我们 `DevUI` 团队有多个开源项目，现在都在招募`contributor`，欢迎大家一起参与开源中来！(感兴趣的小伙伴可以添加`DevUI`小助手的微信：`devui-official`，将你拉到我们的核心开发群)
-
-- Ng DevUI: [https://github.com/DevCloudFE/ng-devui](https://github.com/DevCloudFE/ng-devui)
-- Vue DevUI: [https://gitee.com/devui/vue-devui](https://gitee.com/devui/vue-devui)
-- DevUI Admin [https://github.com/DevCloudFE/ng-devui-admin](https://github.com/DevCloudFE/ng-devui-admin)
-
-`DevUI`官网：[https://devui.design/](https://devui.design/)
-
-
 <EditInfo time="2021年10月10日 00:25" title="阅读 4651 ·  点赞 29 ·  评论 10 ·  收藏 24" />

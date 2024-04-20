@@ -417,20 +417,4 @@ mv /usr/local/nginx/html/dist/* /usr/local/nginx/html/
 
 最后详细介绍了如何利用DevCloud流水线工具，实现自动化部署。
 
-## 加入我们
-我们是DevUI团队，欢迎来这里和我们一起打造优雅高效的人机设计/研发体系。招聘邮箱：muyang2@huawei.com。
-
-文/DevUI Kagol
-
-
-往期文章推荐
-
-[《现在开始为你的Angular应用编写测试 》](https://juejin.im/post/6885134113964523528)
-
-[《Web界面深色模式和主题化开发》](https://juejin.im/post/6844904167761248263)
-
-[《手把手教你搭建一个灰度发布环境》](https://juejin.im/post/6844904110601273357)
-
-
-
 <EditInfo time="2020年10月27日 00:12" title="阅读 7931 ·  点赞 83 ·  评论 24 ·  收藏 99" />

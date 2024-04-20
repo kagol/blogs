@@ -258,9 +258,7 @@ git filter-branch --tree-filter 'rm -f passwords.txt' HEAD
 git rebase -i
 ```
 
-该命令非常强大，DevUI团队的少东之前专门写过一篇来介绍该命令，欢迎大家移步阅读：
-
-[关于Git rebase你必须要知道的几件事](https://juejin.im/post/6844904177634639880)
+该命令非常强大，感兴趣的朋友可以参考[官网文档](https://git-scm.com/docs/git-rebase/zh_HANS-CN)。
 
 如果发现文中有错误或者遗漏的地方，欢迎大家指正！
 

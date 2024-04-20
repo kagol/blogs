@@ -6,29 +6,6 @@
 
 原文链接：[https://juejin.cn/post/7021870182855344142](https://juejin.cn/post/7021870182855344142)
 
-最近在与[村长](https://space.bilibili.com/480140591)老师一起做[直播](https://www.bilibili.com/video/BV1Z64y187dR)，给大家分享[vue devui](https://gitee.com/devui/vue-devui)开源组件库的建设，1-3期以 tree 组件为栗子🌰，介绍了如何设计和开发Vue组件：
-1. [Vue DevUI开源指南01：提交我的第一次pr](https://juejin.cn/post/7009273646884028430)
-1. [Vue DevUI开源指南02：实现一个能渲染多层节点的Tree组件](https://juejin.cn/post/7011535488171376671)
-1. [Vue DevUI开源指南03：如何给 tree 组件增加展开/收起功能](https://juejin.cn/post/7015023354847428645)
-
-从第4期开始给大家分享组件库工程化相关的内容：
-1. [【我要做开源】Vue DevUI开源指南04：使用Vite搭建一个支持TypeScript/JSX的Vue3组件库工程 ](https://juejin.cn/post/7017101147865350158)
-1. [【我要做开源】Vue DevUI开源指南05：给Vue3组件库添加VitePress文档系统 ](https://juejin.cn/post/7019314307682795534)
-
-后续的直播也会分成两条线：
-1. 一条是组件的设计和实现
-1. 另一条是组件库的工程化
-
-欢迎大家持续关注～
-
-我们 `DevUI` 团队有多个开源项目，现在都在招募`contributor`，欢迎大家一起参与开源中来！(感兴趣的小伙伴可以添加`DevUI`小助手的微信：`devui-official`，将你拉到我们的核心开发群)
-
-- Ng DevUI: [https://github.com/DevCloudFE/ng-devui](https://github.com/DevCloudFE/ng-devui)
-- Vue DevUI: [https://gitee.com/devui/vue-devui](https://gitee.com/devui/vue-devui)
-- DevUI Admin [https://github.com/DevCloudFE/ng-devui-admin](https://github.com/DevCloudFE/ng-devui-admin)
-
-`DevUI`官网：[https://devui.design/](https://devui.design/)
-
 ## 上一期内容回顾
 
 上一期主要给大家分享了两部分内容：
@@ -423,7 +400,5 @@ npm run cli -- -t component
 ## 未完待续
 
 尽情期待后续更精彩的分享！
-
-
 
 <EditInfo time="2021年10月22日 23:41" title="阅读 2012 ·  点赞 22 ·  评论 10 ·  收藏 13" />

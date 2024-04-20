@@ -386,26 +386,4 @@ ngOnInit(): void {
 
 如果你的业务中也有新特性要发布，需要增加用户指引，不妨试试这个有趣的跟屁虫组件吧😜！
 
-也欢迎使用DevUI新发布的[DevUI Admin](https://devui.design/admin-page/home)系统，开箱即用，10分钟搭建一个美观大气的后台管理系统！
-
-## 加入我们
-
-我们是DevUI团队，欢迎来这里和我们一起打造优雅高效的人机设计/研发体系。招聘邮箱：muyang2@huawei.com。
-
-文/DevUI Kagol
-
-往期文章推荐
-
-[《Quill富文本编辑器的实践》](https://juejin.cn/post/6966993945973194765)
-
-[《如何解决异步接口请求快慢不均导致的数据错误问题？》](https://juejin.cn/post/6959700988882059271)
-
-[《号外号外！DevUI Admin V1.0 发布啦！》](https://juejin.cn/post/6956155033410863134)
-
-[《CategorySearch分类搜索组件初体验》](https://juejin.cn/post/6956612556710477860)
-
-[《让我们一起建设 Vue DevUI 项目吧！》](https://juejin.cn/post/6956988395016945701)
-
-
-
 <EditInfo time="2021年05月30日 12:21" title="阅读 2200 ·  点赞 22 ·  评论 2 ·  收藏 3" />

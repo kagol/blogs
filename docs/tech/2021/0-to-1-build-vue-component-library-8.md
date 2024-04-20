@@ -841,17 +841,6 @@ yarn cli -t component // -t 是 --type 的别名
 - [【我要做开源】华为大佬亲授，Vue DevUI开源指南05：开源组件库中的文档建设，vitepress使用过程中的踩坑经历，克服这些困难你将收获多多！](https://www.bilibili.com/video/BV1r44y1x7sk)
 - [【我要做开源】华为大佬亲授，Vue DevUI开源指南06：开源组件库中的CLI脚手架建设，再也不用担心重复工作和代码风格混乱了！](https://www.bilibili.com/video/BV1QQ4y1i7VV)
 
-## 欢迎参与devui开源项目
-
-我们 `DevUI` 团队有多个开源项目，现在都在招募`contributor`，欢迎大家一起参与开源中来！(感兴趣的小伙伴可以添加`DevUI`小助手的微信：`devui-official`，将你拉到我们的核心开发群)
-
-- Ng DevUI: [https://github.com/DevCloudFE/ng-devui](https://github.com/DevCloudFE/ng-devui)
-- Vue DevUI: [https://gitee.com/devui/vue-devui](https://gitee.com/devui/vue-devui)
-- DevUI Admin [https://github.com/DevCloudFE/ng-devui-admin](https://github.com/DevCloudFE/ng-devui-admin)
-
-`DevUI`官网：[https://devui.design/](https://devui.design/)
-
 `mini-vue-devui`项目仓库地址：[https://github.com/57code/mini-vue-devui](https://github.com/57code/mini-vue-devui)
-
 
 <EditInfo time="2021年10月29日 19:08" title="阅读 2717 ·  点赞 28 ·  评论 7 ·  收藏 26" />

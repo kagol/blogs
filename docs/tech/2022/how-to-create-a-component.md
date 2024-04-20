@@ -93,31 +93,4 @@ packages/devui-vue/docs/components/steps # 组件文档
 
 当然工具是死的，人才是最关键的，我们的田主来自全国各地，背景、经历各不相同，相同的是大家都是一群热爱开源、热爱学习、乐于讨论和协作的年轻人，大家都愿意为了让项目变得更好而使用工具和遵循规范，而且我们的工具和规范本身也是田主们一起讨论和实现出来的。
 
-# 贡献者招募
-
-[Vue DevUI](https://github.com/DevCloudFE/vue-devui) 还在持续完善中，还有很多组件的功能有待完善，欢迎你参与到 Vue DevUI 项目的建设中来！🎉
-
-通过参与 Vue DevUI 项目，我们可以一起：
-
--   🔥 学习最新的 `Vite`+`Vue3`+`TypeScript`+`JSX` 技术
--   🎁 学习如何设计和开发组件
--   ⭐ 磨练编程技能，学习优秀的编程实践
--   🎊 结识一群热爱学习、热爱开源的朋友
-
-目前以下组件比较活跃，欢迎一起共建：
-- [Table 表格](https://devui.design/components/zh-cn/datatable)
-- [Tree](https://devui.design/components/zh-cn/tree)
-- [DatePickerPro 日期选择器](https://devui.design/components/zh-cn/datepickerPro)
-- [DragDrop 拖拽](https://devui.design/components/zh-cn/dragdrop)
-- [Cascader 级联菜单](https://devui.design/components/zh-cn/cascader)
-- [Dashboard 仪表盘](https://devui.design/components/zh-cn/dashboard)
-- [Gantt 甘特图](https://devui.design/components/zh-cn/gantt)
-- [Quadrant Diagram 象限图](https://devui.design/components/zh-cn/quadrant-diagram)
-
-也可以在以下 issues 列表中认领组件开发任务：
-[https://github.com/DevCloudFE/vue-devui/issues](https://github.com/DevCloudFE/vue-devui/issues)
-
-欢迎加DevUI小助手微信：devui-official，加入我们的技术交流群！
-
-
 <EditInfo time="2022年06月07日 11:43" title="阅读 1080 ·  点赞 8 ·  评论 9 ·  收藏 6" />
