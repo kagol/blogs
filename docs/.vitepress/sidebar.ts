@@ -17,7 +17,7 @@ export function sidebarTech() {
         { text: 'Backbone.js 入门', link: '/tech/2016/getting-started-with-backbone' },
         { text: '使用 JavaScript 进行数组去重', link: '/tech/2016/array-deduplication-algorithm' },
         { text: '使用 Angular.js 构建单页面应用', link: '/tech/2016/angular-spa' },
-        { text: '🔥 z-index 失效原因分析', link: '/tech/2017/thinking-z-index' },
+        { text: '🔥 z-index 失效原因分析', link: '/tech/2017/thinking-css-stacking-context' },
         { text: '浏览器内部工作原理', link: '/tech/2017/how-browser-works' }
       ]
     },
