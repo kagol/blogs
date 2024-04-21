@@ -347,7 +347,7 @@ Vue：
 
 其他组件设计相关的文章：
 
-- 手把手教你使用 Vue / React / Angular 三大框架开发 Pagination 分页组件
+- [手把手教你使用 Vue / React / Angular 三大框架开发 Pagination 分页组件](/tech/2020/develop-pagination-component-using-vue-react-angular)
 - [从 CDK Tree 源码学习如何开发一个 UI 无关的 Tree 组件](/tech/2022/cdk-tree)
 
 富文本编辑器：
