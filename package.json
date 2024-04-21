@@ -1,8 +1,9 @@
 {
   "name": "blogs",
   "version": "1.0.0",
-  "description": "",
+  "description": "前端开源星球🌍：分享前端理论和实践，学习优秀的前端开源项目。",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "dev": "vitepress dev docs",
     "build": "rm -rf docs/.vitepress/dist && vitepress build docs",
@@ -10,13 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@gitee.com:kagol/blogs.git"
+    "url": "git@github.com:kagol/blogs.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": ["open-source", "front-end", "blogs"],
+  "author": "Kagol",
+  "homepage": "https://kagol.github.io/blogs/",
+  "license": "MIT",
   "devDependencies": {
     "sass": "^1.63.6",
-    "vitepress": "1.0.0-beta.5"
+    "vitepress": "^1.1.3"
   }
 }

@@ -6,7 +6,7 @@
 
 TypeScript 可谓逐年火热，使用者呈现逐年上升的趋势，再不学起来就说不过去。 
 
-我们 [OpenTiny](opentiny.design) 近期做了一次大的升级，将原来运行了 `9年` 的 `JavaScript` 代码升级到了 `TypeScript`，并通过 Monorepo 进行子包的管理，还在用 JavaScript 的朋友抓紧升级哦，我特意准备了一份《JS项目改造TS指南》文档供大家参考，顺便介绍了一些 TS 基础知识和 TS 在 Vue 中的一些实践。
+我们 [OpenTiny](https://opentiny.design/) 近期做了一次大的升级，将原来运行了 `9年` 的 `JavaScript` 代码升级到了 `TypeScript`，并通过 Monorepo 进行子包的管理，还在用 JavaScript 的朋友抓紧升级哦，我特意准备了一份《JS项目改造TS指南》文档供大家参考，顺便介绍了一些 TS 基础知识和 TS 在 Vue 中的一些实践。
 
 ![image.png](/assets/typescript-vue-1.png)
 
