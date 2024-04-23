@@ -154,29 +154,29 @@ Document：<https://quilljs.com/>
 *   第四步：调用 Quill 的 API 插入表情
 
 #### 4.6.1 第一步：自定义工具栏按钮
-
-    const quill = new Quill('#editor', {
-      theme: 'snow',
-      modules: {
-        // 配置工具栏模块
-        toolbar: {
-          container: [ …, [ 'emoji' ] ], // 增加一个按钮
-          handlers: {
-            // 添加按钮的处理逻辑
-            emoji() {
-              console.log('插入表情');
-            }
-          }
-        },
-      }
-    });
-
+```ts
+const quill = new Quill('#editor', {
+  theme: 'snow',
+  modules: {
+    // 配置工具栏模块
+    toolbar: {
+      container: [ …, [ 'emoji' ] ], // 增加一个按钮
+      handlers: {
+        // 添加按钮的处理逻辑
+        emoji() {
+          console.log('插入表情');
+        }
+      }
+    },
+  }
+});
+```
 #### 4.6.2 给工具栏按钮增加图标
-
-    // 扩展 Quill 内置的 icons 配置
-    const icons = Quill.import('ui/icons');
-    icons.emoji = ‘<svg>…</svg>’; // 图标的 svg 可以从 iconfont 网站复制
-
+```ts
+// 扩展 Quill 内置的 icons 配置
+const icons = Quill.import('ui/icons');
+icons.emoji = ‘<svg>…</svg>’; // 图标的 svg 可以从 iconfont 网站复制
+```
 效果如下：
 
 ![17.png](/assets/quill-practice-17.png)
@@ -192,63 +192,63 @@ Quill 内置的图片格式不支持自定义宽高，而我们要插入的表�
 因此我们可以基于 Quill 内置的 image 格式来扩展。
 
 emoji.ts
+```ts
+import Quill from 'quill';
 
-    import Quill from 'quill';
+const ImageBlot = Quill.import('formats/image');
 
-    const ImageBlot = Quill.import('formats/image');
+// 扩展 Quill内置的 image 格式
+class EmojiBlot extends ImageBlot {
+  static blotName = 'emoji'; // 定义自定义 Blot 的名字（必须全局唯一）
+  static tagName = 'img'; // 自定义内容的标签名
 
-    // 扩展 Quill内置的 image 格式
-    class EmojiBlot extends ImageBlot {
-      static blotName = 'emoji'; // 定义自定义 Blot 的名字（必须全局唯一）
-      static tagName = 'img'; // 自定义内容的标签名
+  // 创建自定义内容的 DOM 节点
+  static create(value): any {
+    const node = super.create(value);
+    node.setAttribute('src', ImageBlot.sanitize(value.url));
+    if (value.width !== undefined) {
+      node.setAttribute('width', value.width);
+    }
+    if (value.height !== undefined) {
+      node.setAttribute('height', value.height);
+    }
+    return node;
+  }
+    
+    // 返回 options 数据
+  static value(node): any {
+    return {
+      url: node.getAttribute('src'),
+      width: node.getAttribute('width'),
+      height: node.getAttribute('height')
+    };
+  }
+}
 
-      // 创建自定义内容的 DOM 节点
-      static create(value): any {
-        const node = super.create(value);
-        node.setAttribute('src', ImageBlot.sanitize(value.url));
-        if (value.width !== undefined) {
-          node.setAttribute('width', value.width);
-        }
-        if (value.height !== undefined) {
-          node.setAttribute('height', value.height);
-        }
-        return node;
-      }
-      
-      // 返回 options 数据
-      static value(node): any {
-        return {
-          url: node.getAttribute('src'),
-          width: node.getAttribute('width'),
-          height: node.getAttribute('height')
-        };
-      }
-    }
-
-    export default EmojiBlot;
-
+export default EmojiBlot;
+```
 #### 4.6.4 第三步：在 Quill 注册 EmojiBlot
 
 有了 EmojiBlot，要将其插入 Quill 编辑器中，还需要将这个 ES6 类注册到 Quill 中。
-
-    import EmojiBlot from './formats/emoji';
-    Quill.register('formats/emoji', EmojiBlot);
-
+```ts
+import EmojiBlot from './formats/emoji';
+Quill.register('formats/emoji', EmojiBlot);
+```
 #### 4.6.5 第四步：调用 Quill 的 API 插入表情
 
 EmojiBlot 注册到 Quill 中之后，Quill 就能认识它了，也就可以调用 Quill 的 API 将其插入到编辑器中。
-
-    emoji(): void {
-      console.log('插入表情');
-      // 获取当前光标位置
-      const index = this.quill.getSelection().index;
-      // 在当前光标处插入 emoji（blotName）
-      this.quill.insertEmbed(index, 'emoji', {
-        url: 'assets/emoji/good.png',
-        width: '64px',
-      });
-    },
-
+```ts
+emoji(): void {
+  console.log('插入表情');
+  // 获取当前光标位置
+  const index = this.quill.getSelection().index;
+  // 在当前光标处插入 emoji（blotName）
+  this.quill.insertEmbed(index, 'emoji', {
+    url: 'assets/emoji/good.png',
+    width: '64px',
+  });
+},
+```
 ### 4.7 效果图
 
 ![图片.png](/assets/quill-practice-18.png)
@@ -278,7 +278,7 @@ EmojiBlot 注册到 Quill 中之后，Quill 就能认识它了，也就可以调
 ![20.png](/assets/quill-practice-20.png)
 
 Delta 是 JSON 的一个子集，只包含一个 ops 属性，它的值是一个对象数组，每个数组项代表对编辑器的一个操作（以编辑器初始状态为空为基准）。
-
+```json
     {
       "ops": [
         { "insert": "Hello " },
@@ -286,31 +286,31 @@ Delta 是 JSON 的一个子集，只包含一个 ops 属性，它的值是一个
         { "insert": "\n" }
       ]
     }
-
+```
 #### 5.2.2 修改编辑器内容
 
 比如我们把加粗的"World"改成红色的文字"World"，这个动作用 Delta 描述如下：
-
+```json
     {
       "ops": [
         { "retain": 6 },
         { "retain": 5, "attributes": { "color": "#ff0000" } }
       ]
     }
-
+```
 意思是：保留编辑器最前面的6个字符，即保留"Hello "不动，保留之后的5个字符"World"，并将这些字符设置为字体颜色为"#ff0000"。
 
 #### 5.2.3 删除编辑器内容
 
 如果要删除"World"呢？
-
+```json
     {
       "ops": [
         { "retain": 6 },
         { "delete": 5 }
       ]
     }
-
+```
 即：保留前面6个字符（'Hello '），删除之后的5个字符（'World'）
 
 ### 5.3 Quill 如何渲染内容？
@@ -333,6 +333,5 @@ Delta 是 JSON 的一个子集，只包含一个 ops 属性，它的值是一个
 [《现代富文本编辑器 Quill 的模块化机制》](https://juejin.cn/post/7326814224330604544)
 
 THANK YOU！
-
 
 <EditInfo time="2021年05月27日 23:36" title="阅读 8984 ·  点赞 129 ·  评论 72 ·  收藏 142" />

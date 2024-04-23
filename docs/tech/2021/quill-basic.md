@@ -23,16 +23,16 @@
 - 引入
 - 使用
 
-```
+```shell
 // 安装
 npm i quill
 ```
 
-```
+```html
 <div id="editor"></div>
 ```
 
-```
+```ts
 // 引入
 import Quill from 'quill';
 
@@ -60,7 +60,7 @@ const quill = new Quill('#editor');
 
 Quill 类一共有两个参数，第一个参数是必选的编辑器容器元素`container`，可以是一个CSS选择器，比如前面的`#editor`，也可以是一个DOM元素，比如：
 
-```
+```ts
 const container = document.getElementById('editor');
 // const container = document.querySelector('#editor');
 // const container = $('#editor').get(0);
@@ -69,7 +69,7 @@ const quill = new Quill(container);
 
 如果容器里面已经有一些 HTML 元素，那么初始化 Quill 的时候，那些元素也会渲染出来，比如：
 
-```
+```html
 <div id="editor">
   <p>Quill: An API Driven Rich Text Editor</p>
   <h2>BUILT FOR DEVELOPERS</h2>
@@ -89,7 +89,7 @@ const quill = new Quill(container);
 
 第二个参数是可选的配置选项`options`，options是一个JSON对象，比如我们想给我们的编辑器增加一个主题，使它不再那么单调。
 
-```
+```ts
 const quill = new Quill('#editor', {
   theme: 'snow'
 });
@@ -97,7 +97,7 @@ const quill = new Quill('#editor', {
 
 另外需要引入该主题对应的样式：
 
-```
+```css
 @import 'quill/dist/quill.snow.css';
 ```
 
@@ -115,12 +115,12 @@ const quill = new Quill('#editor', {
 - 引入主题样式
 - 在options里配置主题
 
-```
+```css
 // 引入bubble主题样式
 @import 'quill/dist/quill.bubble.css';
 ```
 
-```
+```ts
 const quill = new Quill('#editor', {
   theme: 'bubble' // 配置 bubble 主题
 });
@@ -152,7 +152,7 @@ Quill 不仅仅可以配置主题，options一共支持8个配置选项：
 
 在 Quill 里很容易实现，只需要配置`formats`为空数组即可。
 
-```
+```ts
 const quill = new Quill('#editor', {
   theme: 'snow',
   formats: []
@@ -169,7 +169,7 @@ const quill = new Quill('#editor', {
 
 如果我们想保留一部分格式，比如只保留`粗体`和`列表`两种格式：
 
-```
+```ts
 const quill = new Quill('#editor', {
   theme: 'snow',
   formats: [ 'bold', 'list' ]
@@ -213,7 +213,7 @@ Quill 一共支持`11`种行内格式：
 
 这可以很容易地通过配置`placeholder`选项实现。
 
-```
+```ts
 const quill = new Quill('#editor', {
   formats: [],
   placeholder: '平等表达，友善交流',
@@ -249,7 +249,7 @@ Quill 一共有6个内置模块：
 
 Quill 默认只在工具栏中显示一部分格式化按钮，里面没有插入图片的按钮，我们可以通过配置`toolbar`模块来增加。
 
-```
+```ts
 const quill = new Quill('#editor', {
   theme: 'snow',
   modules: {
@@ -294,7 +294,7 @@ const quill = new Quill('#editor', {
 
 使用 Quill 实现，需要这样配置`toolbar`模块。
 
-```
+```ts
 const quill = new Quill('#editor', {
   theme: 'snow',
   modules: {
@@ -337,7 +337,7 @@ const quill = new Quill('#editor', {
 
 但它不支持删除线的快捷键，如果我们想定制删除线的快捷键，假设是`Ctrl+Shift+S`，可以这样配置：
 
-```
+```ts
 const quill = new Quill('#editor', {
   theme: 'snow',
   modules: {
