@@ -68,7 +68,7 @@ export function sidebarTech() {
         { text: '👍 Quill 内容渲染机制', link: '/tech/2020/quill-rendering-principle' },
         { text: '在富文本编辑器中插入一条中国龙', link: '/tech/2021/rich-text-editor-insert-dragon' },
         { text: '在富文本编辑器中玩贪吃蛇游戏', link: '/tech/2021/rich-text-editor-insert-snake-game' },
-        { text: '👍 Quill 富文本编辑器的实践', link: '/tech/2021/quill-practice' },
+        { text: '👍 Quill 富文本编辑器的实践', link: '/tech/2021/quill-practice' }
       ]
     },
     {
@@ -99,7 +99,8 @@ export function sidebarOpenSource() {
       items: [
         { text: '推荐7个 Angular 前端组件库', link: '/open-source/2021/angular-component-libraries' },
         { text: '👍 推荐7个 Vue3 前端组件库', link: '/open-source/2024/vue3-component-libraries' },
-        { text: '一个 OpenTiny，Vue2 Vue3 都支持！', link: '/open-source/2023/opentiny-support-vue2-and-vue3' }
+        { text: '一个 OpenTiny，Vue2 Vue3 都支持！', link: '/open-source/2023/opentiny-support-vue2-and-vue3' },
+        { text: '重回铁王座，Quill 2.0 发布！', link: '/open-source/2024/quill-2.0' }
       ]
     },
     {
