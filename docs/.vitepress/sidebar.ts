@@ -2,7 +2,7 @@ export function sidebarTech() {
   return [
     {
       text: '前端',
-      collapsed: true,
+      collapsed: false,
       items: [
         { text: '使用 Rollup 打包并发布自己的工具库', link: '/tech/2020/rollup-practice' },
         { text: '👍 三步法助你快速定位网站性能问题', link: '/tech/2020/performance-analysis-method' },
@@ -23,7 +23,7 @@ export function sidebarTech() {
     },
     {
       text: 'Vue',
-      collapsed: true,
+      collapsed: false,
       items: [
         { text: '👍 选择 Vue 的四个理由', link: '/tech/2022/why-did-you-choose-vue' },
         { text: '👍 TypeScript 基础及在 Vue 中的实践', link: '/tech/2023/typescript-vue' },
@@ -35,7 +35,7 @@ export function sidebarTech() {
     },
     {
       text: 'UI 组件库',
-      collapsed: true,
+      collapsed: false,
       items: [
         { text: '🔥 前端开发的积木理论', link: '/tech/2019/building-block-theory' },
         { text: '🔥 设计一个灵活好用的 Carousel 组件', link: '/tech/2022/building-block-theory-develop-carousel' },
@@ -60,7 +60,7 @@ export function sidebarTech() {
     },
     {
       text: '富文本编辑器',
-      collapsed: true,
+      collapsed: false,
       items: [
         { text: 'Quill 基本使用和配置', link: '/tech/2021/quill-basic' },
         { text: '通过 Quill API 实现对内容的完全控制', link: '/tech/2021/quill-api' },
@@ -73,7 +73,7 @@ export function sidebarTech() {
     },
     {
       text: '前端之外',
-      collapsed: true,
+      collapsed: false,
       items: [
         { text: '🔥 使用 Git，10件你可能需要“反悔”的事', link: '/tech/2020/git-undo-redo' },
         { text: '使用 DevCloud 实现前端自动化部署', link: '/tech/2020/automate-deployment-of-web-applications' },
@@ -95,7 +95,7 @@ export function sidebarOpenSource() {
   return [
     {
       text: '优秀开源项目',
-      collapsed: true,
+      collapsed: false,
       items: [
         { text: '推荐7个 Angular 前端组件库', link: '/open-source/2021/angular-component-libraries' },
         { text: '👍 推荐7个 Vue3 前端组件库', link: '/open-source/2024/vue3-component-libraries' },
@@ -105,14 +105,14 @@ export function sidebarOpenSource() {
     },
     {
       text: '开源社区运营',
-      collapsed: true,
+      collapsed: false,
       items: [
         { text: '🔥 从启动开源项目到运营开源社区', link: '/open-source/2022/operation-experience-of-open-source-community' }
       ]
     },
     {
       text: '个人总结',
-      collapsed: true,
+      collapsed: false,
       items: [
         { text: '2023 年终：做开源如养花，花开要时间', link: '/open-source/2023/summary-2023' },
         { text: '2022 年终：把时间沉淀到自己的热爱里', link: '/open-source/2022/summary-2022' },
