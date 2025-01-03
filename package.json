@@ -13,12 +13,19 @@
     "type": "git",
     "url": "git@github.com:kagol/blogs.git"
   },
-  "keywords": ["open-source", "front-end", "blogs"],
+  "keywords": [
+    "open-source",
+    "front-end",
+    "blogs"
+  ],
   "author": "Kagol",
   "homepage": "https://kagol.github.io/blogs/",
   "license": "MIT",
   "devDependencies": {
     "sass": "^1.63.6",
     "vitepress": "^1.1.3"
+  },
+  "dependencies": {
+    "@kagol/snow-effect": "^0.0.5"
   }
 }
