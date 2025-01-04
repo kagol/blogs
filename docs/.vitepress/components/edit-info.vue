@@ -1,4 +1,4 @@
-<script setup lant="ts">
+<script setup lang="ts">
 defineProps({
   time: String
 })
