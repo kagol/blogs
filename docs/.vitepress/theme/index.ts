@@ -15,6 +15,10 @@ export default {
     // 下雪效果
     if (typeof document === 'undefined') return
 
+    // 只要冬天才下雪
+    const month = new Date().getMonth() + 1
+    if (![12, 1, 2].includes(month)) return
+
     let scene
 
     router.onBeforeRouteChange = (to) => {
