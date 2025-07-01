@@ -12,7 +12,8 @@ export default defineConfig({
   themeConfig: {
     nav: [
       { text: '技术', link: '/tech/overview', activeMatch: '/tech/' },
-      { text: '开源', link: '/open-source/overview', activeMatch: '/open-source/' }
+      { text: '开源', link: '/open-source/overview', activeMatch: '/open-source/' },
+      { text: '关于我', link: '/about' }
     ],
     sidebar: {
       '/tech/': sidebarTech(),
