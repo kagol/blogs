@@ -120,7 +120,8 @@ export function sidebarOpenSource() {
         { text: '2022 年终：把时间沉淀到自己的热爱里', link: '/open-source/2022/summary-2022' },
         { text: '2022 年中：种子终会破土而出', link: '/open-source/2022/summary-2022-mid' },
         { text: '2021 年终：建设一个温暖的开源社区', link: '/open-source/2021/summary-2021' },
-        { text: '2021 年中：烧不死的鸟是凤凰', link: '/open-source/2021/summary-2021-mid' }
+        { text: '2021 年中：烧不死的鸟是凤凰', link: '/open-source/2021/summary-2021-mid' },
+        { text: '2020 年中：技术人做开源初篇', link: '/open-source/2020/summary-2020-mid' },
       ]
     }
   ]
