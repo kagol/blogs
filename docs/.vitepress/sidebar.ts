@@ -114,6 +114,7 @@ export function sidebarOpenSource() {
       text: '个人总结',
       collapsed: false,
       items: [
+        { text: '2025 年中：一位社恐自我成长的故事', link: '/open-source/2025/summary-2025-mid' },
         { text: '2024 年终：达成 5000 Star 成就', link: '/open-source/2024/summary-2024' },
         { text: '2024 年中：VueConf 2024 我来啦', link: '/open-source/2024/summary-2024-mid' },
         { text: '2023 年终：做开源如养花，花开要时间', link: '/open-source/2023/summary-2023' },
