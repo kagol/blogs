@@ -1,12 +1,3 @@
-import path from 'path'
-import { fileURLToPath } from 'url'
-import { scanArticlesInDirectory, generateMonthlyGroupedSidebar } from './utils/article-grouping'
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
-
-/**
- * 按分类的侧边栏（原始方式，保留用于兼容）
- */
 export function sidebarTech() {
   return [
     {
@@ -84,7 +75,7 @@ export function sidebarTech() {
       text: '前端之外',
       collapsed: false,
       items: [
-        { text: '🔥 使用 Git，10件你可能需要"反悔"的事', link: '/tech/2020/git-undo-redo' },
+        { text: '🔥 使用 Git，10件你可能需要“反悔”的事', link: '/tech/2020/git-undo-redo' },
         { text: '使用 DevCloud 实现前端自动化部署', link: '/tech/2020/automate-deployment-of-web-applications' },
         { text: '🔥 使用 git bisect 助你快速定位疑难bug', link: '/tech/2021/git-bisect' },
         { text: '实现复杂状态机的一种思路', link: '/tech/2019/a-way-to-realize-complex-state-machine' },
@@ -94,18 +85,10 @@ export function sidebarTech() {
         { text: '使用 Mongoose 操作 MongoDB 数据库', link: '/tech/2016/nodejs-mongoose' },
         { text: '2016 腾讯"创益24小时"公益大赛总结', link: '/tech/2016/summary-create-public-welfare-24-hour' },
         { text: '立完 flag，你可能需要对 flag 进行量化', link: '/tech/2020/how-to-quantify-front-end-goals' },
+        
       ]
     }
   ]
-}
-
-/**
- * 按月份分组的侧边栏（动态生成，从近到远排序）
- */
-export function sidebarTechMonthly() {
-  const techPath = path.join(__dirname, '..', 'tech')
-  const articles = scanArticlesInDirectory(techPath, techPath)
-  return generateMonthlyGroupedSidebar(articles, 'tech')
 }
 
 export function sidebarOpenSource() {
@@ -143,13 +126,4 @@ export function sidebarOpenSource() {
       ]
     }
   ]
-}
-
-/**
- * 按月份分组的侧边栏（动态生成，从近到远排序）
- */
-export function sidebarOpenSourceMonthly() {
-  const openSourcePath = path.join(__dirname, '..', 'open-source')
-  const articles = scanArticlesInDirectory(openSourcePath, openSourcePath)
-  return generateMonthlyGroupedSidebar(articles, 'open-source')
 }

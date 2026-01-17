@@ -1,5 +1,5 @@
 import { defineConfig } from 'vitepress'
-import { sidebarOpenSource, sidebarTech } from './sidebar'
+import { sidebarOpenSource, sidebarTech, sidebarTechMonthly, sidebarOpenSourceMonthly } from './sidebar'
 
 export default defineConfig({
   title: 'Kagol',
@@ -16,8 +16,8 @@ export default defineConfig({
       { text: '关于我', link: '/about' }
     ],
     sidebar: {
-      '/tech/': sidebarTech(),
-      '/open-source/': sidebarOpenSource()
+      '/tech/': sidebarTechMonthly(),
+      '/open-source/': sidebarOpenSourceMonthly()
     }
   }
 })
