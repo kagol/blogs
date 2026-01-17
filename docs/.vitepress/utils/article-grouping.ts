@@ -27,12 +27,42 @@ export function extractTitleFromMarkdown(filePath: string): string {
 }
 
 /**
+ * 从markdown文件中提取EditInfo标签中的日期信息
+ * 格式: <EditInfo time="YYYY-MM-DD HH:mm" ... />
+ */
+export function extractDateFromEditInfo(filePath: string): { year: number; month: number; date: Date } | null {
+  try {
+    const content = fs.readFileSync(filePath, 'utf-8')
+    const editInfoMatch = content.match(/<EditInfo\s+time="(\d{4})-(\d{2})-(\d{2})\s+\d{2}:\d{2}"/)
+    
+    if (editInfoMatch) {
+      const year = parseInt(editInfoMatch[1], 10)
+      const month = parseInt(editInfoMatch[2], 10)
+      const date = new Date(year, month - 1, 1)
+      return { year, month, date }
+    }
+  } catch (error) {
+    console.warn(`Error reading file ${filePath}:`, error)
+  }
+  
+  return null
+}
+
+/**
  * 从目录路径和文件名提取日期信息
+ * 优先从文件中的EditInfo标签提取，若无则从路径提取
  * 假设结构为: /docs/category/year/filename.md
  */
 export function extractDateFromPath(
   filePath: string
 ): { year: number; month: number; date: Date } | null {
+  // 首先尝试从EditInfo标签提取日期
+  const editInfoDate = extractDateFromEditInfo(filePath)
+  if (editInfoDate) {
+    return editInfoDate
+  }
+  
+  // 若未找到EditInfo，则从路径提取
   const parts = filePath.split(path.sep)
   
   // 查找年份部分
