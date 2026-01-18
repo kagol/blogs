@@ -12,6 +12,10 @@ export default {
     app.component('EditInfo', EditInfo)
     insertBaiduScript()
 
+    const enableSnow = false
+
+    if (!enableSnow) return
+
     // 下雪效果
     if (typeof document === 'undefined') return
 
