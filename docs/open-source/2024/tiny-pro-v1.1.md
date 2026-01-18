@@ -142,7 +142,7 @@ a08b97f24e28   redis         "docker-entrypoint.s…"   About a minute ago   Up 
 
 进入 web 目录，执行以下命令：
 
-```
+```bash
 npm i && npm start
 
 > tiny-pro-demo@1.0.0 start
@@ -158,7 +158,7 @@ npm i && npm start
 
 启动 Mock 服务：
 
-```
+```bash
 kagol$ npm run mock
 
 > tiny-pro-demo@1.0.0 mock
@@ -167,7 +167,7 @@ kagol$ npm run mock
 
 前端启动成功！
 
-浏览器访问：http://localhost:3031/
+浏览器访问：`http://localhost:3031/`
 
 进入登录界面，并且能正常登录，就说明前后端启动都没问题！
 
